@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness & Performance | Personal Trainer</title>
+<meta name="description" content="Treinamento personalizado de alta performance. Alcance seu melhor físico de forma inteligente e acompanhada de perto.">
+
+<!-- Metadados de Compartilhamento -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fitness & Performance | Personal Trainer">
+<meta property="og:description" content="Treinamento personalizado de alta performance. Alcance seu melhor físico de forma inteligente e acompanhada de perto.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fontes Premium -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --graphite: #16171B;
+    --panel: #1E2024;
+    --panel-edge: #2B2D33;
+    --bronze: #C69C4B;
+    --bronze-dim: #8C6E36;
+    --oxblood: #7A2E2E;
+    --ivory: #EDEAE2;
+    --grey: #9A9CA3;
+    --grey-dim: #5B5D64;
+
+    --display: 'Fraunces', serif;
+    --body: 'Manrope', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--graphite);
+    color: var(--ivory);
+    font-family: var(--body);
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--bronze);
+  }
+  h1, h2, h3 { font-family: var(--display); font-weight: 900; line-height: 1.02; letter-spacing: -.01em; }
+  
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 16px 28px; border: 1px solid var(--bronze); color: var(--ivory);
+    position: relative; transition: .25s ease; cursor: pointer; background: transparent;
+  }
+  .btn::before {
+    content: ''; position: absolute; inset: 0; background: var(--bronze);
+    transform: scaleX(0); transform-origin: left; transition: transform .3s ease; z-index: -1;
+  }
+  .btn:hover { color: var(--graphite); }
+  .btn:hover::before { transform: scaleX(1); }
+  .btn-solid { background: var(--bronze); color: var(--graphite); border-color: var(--bronze); }
+  .btn-solid::before { background: var(--graphite); }
+  .btn-solid:hover { color: var(--ivory); }
+  .mobile-only-cta { display: none !important; }
+
+  /* NAV */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(22,23,27,.86); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--panel-edge);
+  }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 32px; max-width: 1180px; margin: 0 auto; }
+  .logo { font-family: var(--display); font-weight: 900; font-size: 20px; letter-spacing: -.01em; }
+  .logo span { color: var(--bronze); }
+  .nav-links { display: flex; gap: 36px; font-family: var(--mono); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+  .nav-links a { color: var(--grey); transition: .2s; }
+  .nav-links a:hover { color: var(--bronze); }
+  .nav-cta { display: flex; }
+
+  /* Hamburger Menu */
+  .menu-toggle {
+    display: none; flex-direction: column; justify-content: space-between;
+    width: 24px; height: 18px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 60;
+  }
+  .menu-toggle span { width: 100%; height: 2px; background-color: var(--ivory); transition: all 0.3s ease; }
+  .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: var(--bronze); }
+  .menu-toggle.active span:nth-child(2) { opacity: 0; }
+  .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: var(--bronze); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 140px 0 80px; position: relative;
+    background: radial-gradient(circle at 80% 30%, rgba(198,156,75,.08), transparent 50%), var(--graphite);
+  }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 64px; align-items: center; }
+  .hero h1 { font-size: clamp(40px, 5vw, 68px); }
+  .hero h1 em { font-style: italic; color: var(--bronze); font-weight: 600; }
+  .hero p.lede { font-size: 19px; color: var(--grey); margin: 26px 0 34px; max-width: 46ch; }
+  .hero-ctas { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+  
+  .cred-strip {
+    margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--panel-edge);
+    display: flex; gap: 32px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; color: var(--grey); letter-spacing: .03em;
+  }
+  .cred-strip b { color: var(--ivory); font-weight: 500; }
+
+  .hero-portrait { position: relative; }
+  .hero-portrait .frame {
+    position: relative; border: 1px solid var(--panel-edge); padding: 18px;
+    aspect-ratio: 4/5; overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, rgba(198,156,75,.12), transparent 70%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  
+  /* Abstract Gym Vector Art inside frame */
+  .hero-portrait .gym-graphic {
+    width: 80%; height: 80%; opacity: 0.85; stroke: var(--bronze); fill: none; stroke-width: 1.5;
+  }
+
+  /* SOBRE */
+  .about-sec { padding: 100px 0; }
+  .about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: center; }
+  .about-facts { display: flex; flex-direction: column; gap: 0; }
+  .fact { display: grid; grid-template-columns: 64px 1fr; gap: 20px; padding: 22px 0; border-top: 1px solid var(--panel-edge); }
+  .fact:last-child { border-bottom: 1px solid var(--panel-edge); }
+  .fact .n { font-family: var(--mono); color: var(--bronze); font-size: 13px; padding-top: 3px; }
+  .fact h4 { font-family: var(--body); font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+  .fact p { color: var(--grey); font-size: 14.5px; }
+  .about-copy p { color: var(--grey); font-size: 17px; margin-bottom: 20px; }
+  .about-copy p strong { color: var(--ivory); font-weight: 700; }
+
+  /* METODO */
+  .metodo { background: var(--panel); padding: 100px 0; }
+  .section-head { display: grid; grid-template-columns: .4fr .6fr; gap: 40px; margin-bottom: 64px; align-items: end; }
+  .section-head h2 { font-size: clamp(32px, 3.6vw, 44px); }
+  .section-head p { color: var(--grey); font-size: 16px; max-width: 44ch; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--panel-edge); border: 1px solid var(--panel-edge); }
+  .step { background: var(--panel); padding: 44px 34px; }
+  .step .idx { font-family: var(--mono); font-size: 13px; color: var(--bronze); letter-spacing: .08em; }
+  .step h3 { font-family: var(--display); font-weight: 600; font-size: 26px; margin: 18px 0 14px; }
+  .step p { color: var(--grey); font-size: 15px; }
+
+  /* SERVICOS */
+  .services-sec { padding: 100px 0; }
+  .services { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .svc { border: 1px solid var(--panel-edge); padding: 40px; position: relative; transition: .3s ease; }
+  .svc:hover { border-color: var(--bronze); }
+  .svc .eyebrow { margin-bottom: 18px; }
+  .svc h3 { font-size: 28px; font-weight: 600; margin-bottom: 14px; }
+  .svc p { color: var(--grey); font-size: 15px; margin-bottom: 26px; }
+  .svc ul { list-style: none; margin-bottom: 30px; }
+  .svc li {
+    font-size: 14.5px; color: var(--ivory); padding: 10px 0; border-top: 1px solid var(--panel-edge);
+    display: flex; justify-content: space-between; gap: 12px;
+  }
+  .svc li span { color: var(--grey); font-family: var(--mono); font-size: 12px; }
+
+  /* CTA BANNER */
+  .cta-banner {
+    background: linear-gradient(120deg, var(--oxblood), #5c2323);
+    padding: 80px 0; position: relative; overflow: hidden;
+  }
+  .cta-banner::after {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(115deg, rgba(255,255,255,.02) 0 2px, transparent 2px 46px);
+    pointer-events: none;
+  }
+  .cta-inner { display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; position: relative; z-index: 2; }
+  .cta-inner h2 { font-size: clamp(28px, 4vw, 42px); max-width: 14ch; }
+  .cta-actions { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+  .cta-actions .btn { border-color: var(--ivory); }
+  .cta-actions .btn::before { background: var(--ivory); }
+  .cta-actions .btn:hover { color: var(--oxblood); }
+  .cta-actions small { font-family: var(--mono); font-size: 12px; color: rgba(237,234,226,.7); }
+
+  /* FOOTER */
+  footer { padding: 70px 0 40px; border-top: 1px solid var(--panel-edge); }
+  .foot-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; padding-bottom: 50px; border-bottom: 1px solid var(--panel-edge); }
+  .foot-top h4 { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--bronze); margin-bottom: 18px; }
+  .foot-top a, .foot-top p { display: block; color: var(--grey); font-size: 14.5px; margin-bottom: 10px; }
+  .foot-top a:hover { color: var(--ivory); }
+  .foot-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 30px; flex-wrap: wrap; gap: 14px; }
+  .foot-bottom span { font-family: var(--mono); font-size: 12px; color: var(--grey-dim); }
+
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .fade-up.in { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE DESIGN */
+  @media (max-width: 820px) {
+    .menu-toggle { display: flex; }
+    .nav-links {
+      display: flex; position: fixed; top: 0; right: -100%;
+      width: 280px; height: 100vh; background: rgba(22, 23, 27, 0.98);
+      backdrop-filter: blur(15px); flex-direction: column; justify-content: center;
+      align-items: center; gap: 32px; padding: 80px 24px;
+      border-left: 1px solid var(--panel-edge); box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 55;
+    }
+    .nav-links.active { right: 0; }
+    .nav-links a { font-size: 16px; width: 100%; text-align: center; padding: 10px 0; }
+    .nav-cta { display: none; }
+    .nav-links .mobile-only-cta { display: inline-flex !important; margin-top: 16px; }
+    nav { padding: 16px 20px; }
+
+    .hero { padding: 100px 0 60px; min-height: auto; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .hero p.lede { max-width: 100%; margin: 20px 0 28px; }
+    .hero-portrait { max-width: 480px; width: 100%; margin: 0 auto; }
+    .cred-strip { margin-top: 40px; padding-top: 20px; gap: 20px 24px; }
+
+    .about { grid-template-columns: 1fr; gap: 40px; }
+    .about-copy { order: -1; }
+    .about-facts { margin-top: 20px; }
+
+    .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+    .steps { grid-template-columns: 1fr; }
+    .step { padding: 32px 24px; }
+    
+    .services { grid-template-columns: 1fr; }
+    .svc { padding: 32px 24px; }
+    
+    .cta-banner { padding: 60px 0; }
+    .cta-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+    
+    .foot-top { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 0 20px; }
+    .hero h1 { font-size: clamp(34px, 10vw, 48px); }
+    .section-head h2 { font-size: clamp(28px, 8vw, 36px); }
+    .btn { width: 100%; justify-content: center; }
+    .hero-ctas { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .about-copy h2 { font-size: clamp(26px, 8vw, 32px) !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">FITNESS <span>STUDIO</span></div>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#metodo">Método</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn-solid mobile-only-cta" href="https://api.whatsapp.com/send?phone=550000000000" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-solid" href="https://api.whatsapp.com/send?phone=550000000000" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Treino de Impacto · Foco em Resultados</p>
+      <h1>Alcance seu melhor físico.<br><em>Treinando inteligente.</em></h1>
+      <p class="lede">Estruturas de treinamento personalizadas e otimizadas para hipertrofia, força e performance. Sem fórmulas prontas.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="https://api.whatsapp.com/send?phone=550000000000" target="_blank" rel="noopener">Iniciar Agora</a>
+      </div>
+      <div class="cred-strip">
+        <div><b>Educação Física</b> — Certificado</div>
+        <div><b>Personalizado</b> — Individual</div>
+        <div><b>Suporte</b> — Diário</div>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <div class="frame">
+        <!-- SVG Gym Graphic serving as background vector art -->
+        <svg class="gym-graphic" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" stroke-dasharray="4,4" />
+          <path d="M 30,50 L 70,50 M 35,45 L 35,55 M 65,45 L 65,55 M 25,40 L 25,60 M 75,40 L 75,60" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" class="wrap about-sec">
+  <div class="about fade-up">
+    <div class="about-facts">
+      <div class="fact">
+        <div class="n">01</div>
+        <div>
+          <h4>Atendimento Focado</h4>
+          <p>Treinamentos elaborados individualmente para cada corpo e estilo de vida.</p>
+        </div>
+      </div>
+      <div class="fact">
+        <div class="n">02</div>
+        <div>
+          <h4>Metodologia Baseada em Ciência</h4>
+          <p>Prescrição técnica de treinos para máxima hipertrofia com segurança.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-copy">
+      <p class="eyebrow">O Treinador</p>
+      <h2 style="font-size: clamp(28px, 4vw, 38px); margin: 16px 0 24px;">Transformando rotinas através do movimento constante.</h2>
+      <p>Desenvolvemos um método inovador de acompanhamento de resultados que coloca a sua saúde e técnica em primeiro lugar.</p>
+    </div>
+  </div>
+</section>
+
+<section id="metodo" class="metodo">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <p class="eyebrow">O Método</p>
+      <h2>Fases Claras.<br>Resultados Reais.</h2>
+      <p>Nosso processo garante que você treine de forma progressiva e alcance objetivos de longo prazo sem lesões.</p>
+    </div>
+    <div class="steps fade-up">
+      <div class="step">
+        <div class="idx">01 — Avaliação</div>
+        <h3>Diagnóstico Inicial</h3>
+        <p>Análise de mobilidade, histórico e definição de metas.</p>
+      </div>
+      <div class="step">
+        <div class="idx">02 — Planejamento</div>
+        <h3>Periodização de Carga</h3>
+        <p>Divisão e controle de volume de treino específico para seu perfil.</p>
+      </div>
+      <div class="step">
+        <div class="idx">03 — Execução</div>
+        <h3>Feedback Diário</h3>
+        <p>Ajustes finos nas execuções e suporte integral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" class="wrap services-sec">
+  <div class="section-head fade-up">
+    <p class="eyebrow">Serviços</p>
+    <h2>Planos de Acompanhamento</h2>
+  </div>
+  <div class="services fade-up">
+    <div class="svc">
+      <p class="eyebrow">Presencial</p>
+      <h3>Personal Presencial</h3>
+      <p>Acompanhamento direto durante o treino na academia ou estúdio.</p>
+      <ul>
+        <li>Presença <span>Física Completa</span></li>
+        <li>Correção de Postura <span>Na hora</span></li>
+        <li>Suporte e motivação <span>Constante</span></li>
+      </ul>
+      <a class="btn" href="https://api.whatsapp.com/send?phone=550000000000" target="_blank" rel="noopener">Consultar Horários</a>
+    </div>
+    <div class="svc">
+      <p class="eyebrow">Online</p>
+      <h3>Consultoria Digital</h3>
+      <p>Treine com planejamento sob medida e suporte no WhatsApp.</p>
+      <ul>
+        <li>Planilha Mensal <span>Personalizada</span></li>
+        <li>Vídeo Avaliação <span>De Execução</span></li>
+        <li>Suporte Diário <span>No WhatsApp</span></li>
+      </ul>
+      <a class="btn" href="https://api.whatsapp.com/send?phone=550000000000" target="_blank" rel="noopener">Começar Agora</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner" id="contato">
+  <div class="wrap cta-inner fade-up">
+    <h2>Deseja mudar o seu corpo de verdade?</h2>
+    <div class="cta-actions">
+      <a class="btn" href="https://api.whatsapp.com/send?phone=550000000000" target="_blank" rel="noopener">Falar com Treinador no WhatsApp</a>
+      <small>Atendimento direto e imediato.</small>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <h4>Fitness Studio</h4>
+        <p style="max-width:32ch;">Treinamento de alta qualidade focado em saúde, força e performance física.</p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="https://api.whatsapp.com/send?phone=550000000000" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:contato@exemplo.com">contato@exemplo.com</a>
+      </div>
+      <div>
+        <h4>Redes</h4>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Fitness Studio — Todos os direitos reservados.</span>
+      <span>#fitnessstudio</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Animation on scroll
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  },{threshold:.15});
+  document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+  // Mobile Hamburger Menu Control
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    const isActive = menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', isActive);
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
+
+</body>
+</html>

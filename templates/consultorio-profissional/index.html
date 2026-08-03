@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultoria &amp; Estratégia | Serviços Profissionais</title>
+<meta name="description" content="Acelere o crescimento do seu negócio. Consultoria focada em estruturação de processos, metas reais e governança corporativa.">
+
+<!-- Metadados de Compartilhamento -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Consultoria &amp; Estratégia | Serviços Profissionais">
+<meta property="og:description" content="Acelere o crescimento do seu negócio. Consultoria focada em estruturação de processos, metas reais e governança corporativa.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fontes Premium -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --slate-dark: #0B0F19;
+    --panel: #161E2E;
+    --panel-edge: #223047;
+    --blue: #3B82F6;
+    --blue-dim: #1D4ED8;
+    --oxblood: #5C1D1D;
+    --ivory: #F1F5F9;
+    --grey: #94A3B8;
+    --grey-dim: #475569;
+
+    --display: 'Fraunces', serif;
+    --body: 'Manrope', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--slate-dark);
+    color: var(--ivory);
+    font-family: var(--body);
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  h1, h2, h3 { font-family: var(--display); font-weight: 900; line-height: 1.02; letter-spacing: -.01em; }
+  
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 16px 28px; border: 1px solid var(--blue); color: var(--ivory);
+    position: relative; transition: .25s ease; cursor: pointer; background: transparent;
+  }
+  .btn::before {
+    content: ''; position: absolute; inset: 0; background: var(--blue);
+    transform: scaleX(0); transform-origin: left; transition: transform .3s ease; z-index: -1;
+  }
+  .btn:hover { color: var(--slate-dark); }
+  .btn:hover::before { transform: scaleX(1); }
+  .btn-solid { background: var(--blue); color: var(--slate-dark); border-color: var(--blue); }
+  .btn-solid::before { background: var(--slate-dark); }
+  .btn-solid:hover { color: var(--ivory); }
+  .mobile-only-cta { display: none !important; }
+
+  /* NAV */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(11,15,25,.86); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--panel-edge);
+  }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 32px; max-width: 1180px; margin: 0 auto; }
+  .logo { font-family: var(--display); font-weight: 900; font-size: 20px; letter-spacing: -.01em; }
+  .logo span { color: var(--blue); }
+  .nav-links { display: flex; gap: 36px; font-family: var(--mono); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+  .nav-links a { color: var(--grey); transition: .2s; }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-cta { display: flex; }
+
+  /* Hamburger Menu */
+  .menu-toggle {
+    display: none; flex-direction: column; justify-content: space-between;
+    width: 24px; height: 18px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 60;
+  }
+  .menu-toggle span { width: 100%; height: 2px; background-color: var(--ivory); transition: all 0.3s ease; }
+  .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: var(--blue); }
+  .menu-toggle.active span:nth-child(2) { opacity: 0; }
+  .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: var(--blue); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 140px 0 80px; position: relative;
+    background: radial-gradient(circle at 80% 30%, rgba(59,130,246,.08), transparent 50%), var(--slate-dark);
+  }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 64px; align-items: center; }
+  .hero h1 { font-size: clamp(40px, 5vw, 68px); }
+  .hero h1 em { font-style: italic; color: var(--blue); font-weight: 600; }
+  .hero p.lede { font-size: 19px; color: var(--grey); margin: 26px 0 34px; max-width: 46ch; }
+  .hero-ctas { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+  
+  .cred-strip {
+    margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--panel-edge);
+    display: flex; gap: 32px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; color: var(--grey); letter-spacing: .03em;
+  }
+  .cred-strip b { color: var(--ivory); font-weight: 500; }
+
+  .hero-portrait { position: relative; }
+  .hero-portrait .frame {
+    position: relative; border: 1px solid var(--panel-edge); padding: 18px;
+    aspect-ratio: 4/5; overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, rgba(59,130,246,.10), transparent 70%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  
+  /* Abstract Professional Graphic inside frame */
+  .hero-portrait .professional-graphic {
+    width: 70%; height: 70%; opacity: 0.85; stroke: var(--blue); fill: none; stroke-width: 1.5;
+  }
+
+  /* SOBRE / METODO */
+  .about-sec { padding: 100px 0; }
+  .about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: center; }
+  .about-facts { display: flex; flex-direction: column; gap: 0; }
+  .fact { display: grid; grid-template-columns: 64px 1fr; gap: 20px; padding: 22px 0; border-top: 1px solid var(--panel-edge); }
+  .fact:last-child { border-bottom: 1px solid var(--panel-edge); }
+  .fact .n { font-family: var(--mono); color: var(--blue); font-size: 13px; padding-top: 3px; }
+  .fact h4 { font-family: var(--body); font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+  .fact p { color: var(--grey); font-size: 14.5px; }
+  .about-copy p { color: var(--grey); font-size: 17px; margin-bottom: 20px; }
+  .about-copy p strong { color: var(--ivory); font-weight: 700; }
+
+  /* ESPECIALIDADES */
+  .specialties-sec { background: var(--panel); padding: 100px 0; }
+  .section-head { display: grid; grid-template-columns: .4fr .6fr; gap: 40px; margin-bottom: 64px; align-items: end; }
+  .section-head h2 { font-size: clamp(32px, 3.6vw, 44px); }
+  .section-head p { color: var(--grey); font-size: 16px; max-width: 44ch; }
+  
+  .specialties { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .specialty-card { background: var(--slate-dark); border: 1px solid var(--panel-edge); padding: 40px; transition: .3s; }
+  .specialty-card:hover { border-color: var(--blue); }
+  .specialty-card svg { width: 48px; height: 48px; stroke: var(--blue); fill: none; stroke-width: 1.5; margin-bottom: 24px; }
+  .specialty-card h3 { font-family: var(--body); font-weight: 600; font-size: 20px; margin-bottom: 12px; }
+  .specialty-card p { color: var(--grey); font-size: 15px; }
+
+  /* FORMULARIO DE LEAD */
+  .lead-sec { padding: 100px 0; }
+  .lead-container { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .lead-info h2 { font-size: clamp(30px, 4vw, 42px); margin-bottom: 24px; }
+  .lead-info p { color: var(--grey); font-size: 16px; margin-bottom: 16px; }
+  
+  .lead-form { background: var(--panel); border: 1px solid var(--panel-edge); padding: 44px; display: flex; flex-direction: column; gap: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; color: var(--grey); }
+  .form-group input, .form-group textarea {
+    background: var(--slate-dark); border: 1px solid var(--panel-edge); padding: 14px 18px;
+    font-family: var(--body); font-size: 15px; color: var(--ivory); transition: .2s; outline: none;
+  }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--blue); }
+  .lead-form button { margin-top: 10px; cursor: pointer; }
+
+  /* FOOTER */
+  footer { padding: 70px 0 40px; border-top: 1px solid var(--panel-edge); }
+  .foot-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; padding-bottom: 50px; border-bottom: 1px solid var(--panel-edge); }
+  .foot-top h4 { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 18px; }
+  .foot-top a, .foot-top p { display: block; color: var(--grey); font-size: 14.5px; margin-bottom: 10px; }
+  .foot-top a:hover { color: var(--ivory); }
+  .foot-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 30px; flex-wrap: wrap; gap: 14px; }
+  .foot-bottom span { font-family: var(--mono); font-size: 12px; color: var(--grey-dim); }
+
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .fade-up.in { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE DESIGN */
+  @media (max-width: 820px) {
+    .menu-toggle { display: flex; }
+    .nav-links {
+      display: flex; position: fixed; top: 0; right: -100%;
+      width: 280px; height: 100vh; background: rgba(11, 15, 25, 0.98);
+      backdrop-filter: blur(15px); flex-direction: column; justify-content: center;
+      align-items: center; gap: 32px; padding: 80px 24px;
+      border-left: 1px solid var(--panel-edge); box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 55;
+    }
+    .nav-links.active { right: 0; }
+    .nav-links a { font-size: 16px; width: 100%; text-align: center; padding: 10px 0; }
+    .nav-cta { display: none; }
+    .nav-links .mobile-only-cta { display: inline-flex !important; margin-top: 16px; }
+    nav { padding: 16px 20px; }
+
+    .hero { padding: 100px 0 60px; min-height: auto; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .hero p.lede { max-width: 100%; margin: 20px 0 28px; }
+    .hero-portrait { max-width: 480px; width: 100%; margin: 0 auto; }
+    .cred-strip { margin-top: 40px; padding-top: 20px; gap: 20px 24px; }
+
+    .about { grid-template-columns: 1fr; gap: 40px; }
+    .about-copy { order: -1; }
+    .about-facts { margin-top: 20px; }
+
+    .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+    .specialties { grid-template-columns: 1fr; }
+    .specialty-card { padding: 32px 24px; }
+    
+    .lead-container { grid-template-columns: 1fr; gap: 40px; }
+    .lead-form { padding: 32px 24px; }
+    
+    .foot-top { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 0 20px; }
+    .hero h1 { font-size: clamp(34px, 10vw, 48px); }
+    .section-head h2 { font-size: clamp(28px, 8vw, 36px); }
+    .btn { width: 100%; justify-content: center; }
+    .hero-ctas { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .about-copy h2 { font-size: clamp(26px, 8vw, 32px) !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">CONSULTING <span>GROUP</span></div>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn-solid mobile-only-cta" href="https://api.whatsapp.com/send?phone=550000000000" target="_blank" rel="noopener">Agendar Reunião</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-solid" href="https://api.whatsapp.com/send?phone=550000000000" target="_blank" rel="noopener">Agendar Reunião</a>
+    </div>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Consultoria de Resultados · Processos e Governança</p>
+      <h1>Consultoria estratégica.<br><em>Focada em resultados.</em></h1>
+      <p class="lede">Auxiliamos empresas de pequeno e médio porte a estruturarem processos comerciais e metas para o crescimento escalável.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="#contato">Solicitar Diagnóstico</a>
+      </div>
+      <div class="cred-strip">
+        <div><b>Processos</b> — Estruturação</div>
+        <div><b>Governança</b> — Conselhos</div>
+        <div><b>Crescimento</b> — Escala</div>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <div class="frame">
+        <!-- SVG Target Graphic serving as background vector art -->
+        <svg class="professional-graphic" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" />
+          <circle cx="50" cy="50" r="25" />
+          <circle cx="50" cy="50" r="10" />
+          <path d="M 50,10 L 50,90 M 10,50 L 90,50" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" class="wrap about-sec">
+  <div class="about fade-up">
+    <div class="about-facts">
+      <div class="fact">
+        <div class="n">01</div>
+        <div>
+          <h4>Diagnóstico Preciso</h4>
+          <p>Mapeamos os gargalos de vendas e operacionais da sua equipe em menos de 10 dias.</p>
+        </div>
+      </div>
+      <div class="fact">
+        <div class="n">02</div>
+        <div>
+          <h4>Execução Ativa</h4>
+          <p>Não entregamos apenas relatórios. Entramos na operação e acompanhamos a implantação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-copy">
+      <p class="eyebrow">O Escritório</p>
+      <h2 style="font-size: clamp(28px, 4vw, 38px); margin: 16px 0 24px;">Desenvolvendo estratégias seguras para empresas em crescimento.</h2>
+      <p>Nosso time de consultores seniores tem ampla experiência em liderança de mercado e reestruturação corporativa.</p>
+    </div>
+  </div>
+</section>
+
+<section id="especialidades" class="specialties-sec">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <p class="eyebrow">Especialidades</p>
+      <h2>Como Ajudamos Sua Empresa</h2>
+      <p>Desenvolvemos projetos personalizados nas áreas mais críticas de gestão de negócios.</p>
+    </div>
+    <div class="specialties fade-up">
+      <div class="specialty-card">
+        <!-- SVG Chart -->
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="10" width="4" height="10" />
+          <rect x="10" y="5" width="4" height="15" />
+          <rect x="17" y="12" width="4" height="8" />
+        </svg>
+        <h3>Vendas e Processos</h3>
+        <p>Desenho de funil de vendas, metas agressivas e treinamento da equipe comercial.</p>
+      </div>
+      <div class="specialty-card">
+        <!-- SVG Shield -->
+        <svg viewBox="0 0 24 24">
+          <path d="M 12,3 L 4,6 L 4,12 C 4,17 12,21 12,21 C 12,21 20,17 20,12 L 20,6 Z" />
+        </svg>
+        <h3>Governança</h3>
+        <p>Implantação de melhores práticas, conselho consultivo e preparação societária.</p>
+      </div>
+      <div class="specialty-card">
+        <!-- SVG Target -->
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="12" r="5" />
+          <circle cx="12" cy="12" r="1.5" />
+        </svg>
+        <h3>Planejamento Anual</h3>
+        <p>Definição de objetivos financeiros e desdobramento de metas por setor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="wrap lead-sec">
+  <div class="lead-container fade-up">
+    <div class="lead-info">
+      <p class="eyebrow">Contato</p>
+      <h2>Solicite um Diagnóstico Gratuito</h2>
+      <p>Descubra os principais pontos de melhoria da sua operação com uma reunião inicial de 30 minutos sem custos.</p>
+      <p>Nossa equipe entrará em contato para agendar o melhor horário.</p>
+    </div>
+    <form class="lead-form" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
+      <div class="form-group">
+        <label for="name">Nome Completo</label>
+        <input type="text" id="name" required placeholder="Digite seu nome">
+      </div>
+      <div class="form-group">
+        <label for="company">Nome da Empresa</label>
+        <input type="text" id="company" required placeholder="Sua empresa">
+      </div>
+      <div class="form-group">
+        <label for="message">Fale sobre seu negócio</label>
+        <textarea id="message" rows="4" required placeholder="Como podemos te ajudar?"></textarea>
+      </div>
+      <button type="submit" class="btn btn-solid">Enviar Mensagem</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <h4>Consulting Group</h4>
+        <p style="max-width:32ch;">Estratégia corporativa e reestruturação com foco em vendas e eficiência operacional.</p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="https://api.whatsapp.com/send?phone=550000000000" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:contato@consulting.com">contato@consulting.com</a>
+      </div>
+      <div>
+        <h4>Redes</h4>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Consulting Group — Todos os direitos reservados.</span>
+      <span>#consultinggroup</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Animation on scroll
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  },{threshold:.15});
+  document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+  // Mobile Hamburger Menu Control
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    const isActive = menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', isActive);
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
+
+</body>
+</html>
