@@ -158,24 +158,23 @@
   .monogram p{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-bottom:26px;}
   .monogram .plates.decor{max-width:210px;margin:0 auto;}
 
-  /* PROGRAMA DE 12 SEMANAS */
+  /* PROGRAMAS E ASSESSORIA */
   .program{
     padding:clamp(110px,14vw,190px) 0;
     background:#F2F2F0;color:#171717;
   }
-  .program-intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:end;margin-bottom:clamp(72px,10vw,128px);}
-  .program-kicker{font-family:var(--body);font-size:clamp(72px,13vw,176px);font-weight:600;line-height:.78;letter-spacing:-.075em;white-space:nowrap;}
-  .program-intro p{font-size:clamp(22px,2.4vw,34px);line-height:1.25;letter-spacing:-.025em;max-width:22ch;color:#414141;}
+  .program-block + .program-block{margin-top:clamp(64px,9vw,110px);}
+  .program-intro{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:end;margin-bottom:clamp(40px,5vw,60px);}
+  .program-title{font-family:var(--body);font-size:clamp(28px,3.4vw,44px);font-weight:600;line-height:1.15;letter-spacing:-.03em;color:#171717;margin-top:10px;}
+  .program-title .badge-availability{display:inline-block;font-size:14px;font-weight:500;letter-spacing:0;color:#666;}
+  .program-intro p{font-size:clamp(18px,2vw,24px);line-height:1.35;letter-spacing:-.015em;max-width:28ch;color:#414141;}
   .program-phases{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #C9C9C6;}
   .program-phase{padding:32px 32px 0 0;min-height:220px;border-right:1px solid #C9C9C6;}
   .program-phase + .program-phase{padding-left:32px;}
   .program-phase:last-child{border-right:0;}
   .program-phase .phase-number{font-size:12px;font-weight:700;letter-spacing:.14em;color:#777;text-transform:uppercase;}
-  .program-phase h3{font-family:var(--body);font-size:clamp(25px,2.2vw,34px);font-weight:600;line-height:1.12;letter-spacing:-.035em;margin-top:52px;max-width:12ch;}
-  .program-included{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;margin-top:clamp(72px,9vw,116px);padding-top:30px;border-top:1px solid #C9C9C6;}
-  .program-included h3{font-family:var(--body);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
-  .included-list{display:grid;grid-template-columns:1fr 1fr;gap:18px 36px;list-style:none;color:#4B4B4B;}
-  .included-list li{padding-bottom:18px;border-bottom:1px solid #D8D8D5;font-size:15px;}
+  .program-phase h3{font-family:var(--body);font-size:clamp(20px,1.9vw,26px);font-weight:600;line-height:1.2;letter-spacing:-.025em;margin-top:24px;}
+  .program-phase .phase-desc{font-size:15px;line-height:1.55;color:#4B4B4B;margin-top:12px;}
 
   /* RESULTADOS E DEPOIMENTOS */
   .results{padding:clamp(110px,14vw,180px) 0;background:#111;color:#F5F6F6;}
@@ -380,13 +379,12 @@
     }
 
     /* PROGRAMA E RESULTADOS */
-    .program-intro,
-    .program-included {
+    .program-intro {
       grid-template-columns: 1fr;
-      gap: 34px;
+      gap: 20px;
     }
-    .program-kicker {
-      white-space: normal;
+    .program-title {
+      max-width: none;
     }
     .program-phases {
       grid-template-columns: 1fr;
@@ -394,12 +392,12 @@
     .program-phase,
     .program-phase + .program-phase {
       min-height: auto;
-      padding: 26px 0 46px;
+      padding: 24px 0 36px;
       border-right: 0;
       border-bottom: 1px solid #C9C9C6;
     }
     .program-phase h3 {
-      margin-top: 28px;
+      margin-top: 18px;
       max-width: none;
     }
     .results-head {
@@ -561,7 +559,7 @@
       <h1>Alcance sua melhor forma <span>depois dos <br class="mobile-break">30+</span></h1>
       <p class="lede">Resultado de 1 ano em apenas 3 meses</p>
       <div class="hero-ctas">
-        <a class="btn btn-solid" href="#programa">Conhecer o programa</a>
+        <a class="btn btn-solid" href="#programa">Conhecer os programas</a>
       </div>
     </div>
     <div class="hero-portrait">
@@ -574,34 +572,60 @@
 
 <section class="program" id="programa">
   <div class="wrap">
-    <div class="program-intro fade-up">
-      <h2 class="program-kicker">12<br>SEMANAS</h2>
-      <p>Um programa de treino e dieta individualizado, pensado para você.</p>
+    <div class="program-block">
+      <div class="program-intro fade-up">
+        <div>
+          <span class="phase-number">Programa 01</span>
+          <h2 class="program-title">Como funciona a assessoria on-line</h2>
+        </div>
+        <p>Um programa de treino e dieta individualizado, pensado para a sua rotina e seu objetivo.</p>
+      </div>
+
+      <div class="program-phases fade-up">
+        <article class="program-phase">
+          <p class="phase-number">01 — Avaliação Inicial</p>
+          <h3>Avaliação postural e morfológica</h3>
+          <p class="phase-desc">No início realizamos uma avaliação postural e morfológica por meio de suas fotos, para planejar seu treino e dieta de acordo com o seu objetivo.</p>
+        </article>
+        <article class="program-phase">
+          <p class="phase-number">02 — Metodologia</p>
+          <h3>Aplicativo exclusivo</h3>
+          <p class="phase-desc">Você terá acesso a um aplicativo exclusivo com seu treino e dieta com vídeos demonstrativos e instruções precisas para cada exercício.</p>
+        </article>
+        <article class="program-phase">
+          <p class="phase-number">03 — Acompanhamento</p>
+          <h3>Suporte contínuo 24h</h3>
+          <p class="phase-desc">Você recebe suporte 24 horas por dia para esclarecer dúvidas e fazer correções através do WhatsApp, Telegram ou mensagens dentro do próprio aplicativo.</p>
+        </article>
+      </div>
     </div>
 
-    <div class="program-phases fade-up">
-      <article class="program-phase">
-        <p class="phase-number">01 — Semanas 1–4</p>
-        <h3>Diagnóstico e adaptação</h3>
-      </article>
-      <article class="program-phase">
-        <p class="phase-number">02 — Semanas 5–8</p>
-        <h3>Progressão</h3>
-      </article>
-      <article class="program-phase">
-        <p class="phase-number">03 — Semanas 9–12</p>
-        <h3>Consolidação e evolução</h3>
-      </article>
-    </div>
+    <div class="program-block">
+      <div class="program-intro fade-up">
+        <div>
+          <span class="phase-number">Programa 02</span>
+          <h2 class="program-title">Acompanhamento personalizado on-line e ao vivo <span class="badge-availability">(verificar disponibilidade)</span></h2>
+        </div>
+        <p>Treinos individuais em tempo real com condução técnica direta e ajustes constantes.</p>
+      </div>
 
-    <div class="program-included fade-up">
-      <h3>O que está incluído</h3>
-      <ul class="included-list">
-        <li>Avaliação do histórico, rotina e objetivo</li>
-        <li>Programa de treino individualizado</li>
-        <li>Estratégia de dieta individualizada</li>
-        <li>Acompanhamento e ajustes periódicos</li>
-      </ul>
+      <div class="program-phases fade-up">
+        <article class="program-phase">
+          <p class="phase-number">01 — Formato</p>
+          <h3>Sessões individuais ao vivo</h3>
+          <p class="phase-desc">As sessões são realizadas individualmente, em tempo real, por videochamada através do WhatsApp, FaceTime ou Google Meet.</p>
+        </article>
+        <article class="program-phase">
+          <p class="phase-number">02 — Execução</p>
+          <h3>Correção técnica em tempo real</h3>
+          <p class="phase-desc">Durante o treino, acompanho cada exercício, corrijo sua técnica, ajusto cargas e execuções e conduzo a sessão do início ao fim.</p>
+        </article>
+        <article class="program-phase">
+          <p class="phase-number">03 — Evolução</p>
+          <h3>Muito além do treino</h3>
+          <p class="phase-desc">Você recebe muito mais que uma sessão de treino ao vivo. Acompanho sua evolução, faço ajustes no planejamento conforme suas respostas ao treinamento e ofereço orientações para manter consistência, evolução e qualidade na sua rotina de exercícios.</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -609,7 +633,7 @@
 <section class="results" id="depoimentos">
   <div class="wrap">
     <div class="results-head fade-up">
-      <h2>Resultados que você pode acompanhar</h2>
+      <h2>RESULTADOS E TRANSFORMAÇÕES REAIS</h2>
       <p>Estrutura demonstrativa. Fotos, nomes, objetivos e relatos serão inseridos somente após o envio e a aprovação dos alunos.</p>
     </div>
 
