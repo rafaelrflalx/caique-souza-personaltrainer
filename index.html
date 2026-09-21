@@ -179,22 +179,18 @@
   /* RESULTADOS E DEPOIMENTOS */
   .results{padding:clamp(110px,14vw,180px) 0;background:#111;color:#F5F6F6;}
   .results-head{display:flex;justify-content:space-between;align-items:end;gap:48px;margin-bottom:clamp(60px,8vw,100px);}
-  .results-head h2{font-family:var(--body);font-size:clamp(42px,6vw,78px);font-weight:600;line-height:1;letter-spacing:-.055em;max-width:12ch;}
-  .results-head p{max-width:34ch;color:#8E8D8B;font-size:14px;}
-  .result-list{display:flex;flex-direction:column;gap:clamp(90px,12vw,160px);}
-  .result-card{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(240px,.45fr);gap:clamp(36px,6vw,84px);align-items:start;}
-  .result-images{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.12);}
-  .result-placeholder{
-    aspect-ratio:4/5;background:#1D1D1D;display:flex;align-items:center;justify-content:center;
-    color:#6F6F6F;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  }
+  .results-head h2{font-family:var(--body);font-size:clamp(40px,5.5vw,74px);font-weight:600;line-height:1.02;letter-spacing:-.05em;max-width:14ch;}
+  .results-head p{max-width:34ch;color:#8E8D8B;font-size:14px;line-height:1.5;}
+  .result-list{display:flex;flex-direction:column;gap:clamp(70px,9vw,120px);}
+  .result-card{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(240px,.6fr);gap:clamp(36px,6vw,84px);align-items:start;}
+  .result-image-frame{position:relative;border:1px solid rgba(255,255,255,.12);background:#171717;border-radius:2px;overflow:hidden;}
+  .result-image-frame img{width:100%;height:auto;max-height:680px;object-fit:contain;background:#141414;display:block;}
   .result-content{padding-top:18px;border-top:1px solid rgba(255,255,255,.18);}
   .result-meta{display:flex;justify-content:space-between;gap:20px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.1);}
   .result-meta span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#A5A5A5;}
-  .result-card h3{font-family:var(--body);font-size:clamp(24px,2.3vw,34px);font-weight:600;letter-spacing:-.035em;margin:34px 0 10px;}
-  .result-objective{font-size:14px;color:#8E8D8B;margin-bottom:clamp(40px,5vw,72px);}
-  .result-quote{font-size:clamp(17px,1.5vw,21px);line-height:1.55;letter-spacing:-.015em;color:#D1D1D1;}
-  .placeholder-note{color:#777;font-size:11px;letter-spacing:.04em;margin-top:12px;}
+  .result-card h3{font-family:var(--body);font-size:clamp(24px,2.3vw,34px);font-weight:600;letter-spacing:-.035em;margin:26px 0 8px;}
+  .result-objective{font-size:14px;color:#8E8D8B;margin-bottom:clamp(24px,3.5vw,44px);}
+  .result-quote{font-size:clamp(16px,1.4vw,20px);line-height:1.55;letter-spacing:-.015em;color:#D1D1D1;}
 
   section{padding:clamp(110px,14vw,180px) 0;scroll-margin-top:72px;}
   .section-head,
@@ -634,49 +630,85 @@
   <div class="wrap">
     <div class="results-head fade-up">
       <h2>RESULTADOS E TRANSFORMAÇÕES REAIS</h2>
-      <p>Estrutura demonstrativa. Fotos, nomes, objetivos e relatos serão inseridos somente após o envio e a aprovação dos alunos.</p>
+      <p>Transformações reais de alunos que treinam com método, técnica e acompanhamento individualizado — presencial e on-line.</p>
     </div>
 
     <div class="result-list">
+      <!-- Card 01 -->
       <article class="result-card fade-up">
-        <div class="result-images" aria-label="Espaços reservados para fotos de antes e depois">
-          <div class="result-placeholder">Antes</div>
-          <div class="result-placeholder">Depois</div>
+        <div class="result-image-frame">
+          <img src="public/resultados/resultado-01.jpg" alt="Antes e depois - Recomposição corporal e definição feminina" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>12 semanas</span><span>Placeholder 01</span></div>
-          <h3>[Nome do aluno]</h3>
-          <p class="result-objective">[Objetivo / resultado]</p>
-          <p class="result-quote">“[Depoimento a inserir após aprovação do aluno.]”</p>
-          <p class="placeholder-note">Conteúdo visual e textual demonstrativo.</p>
+          <div class="result-meta"><span>Assessoria On-line</span><span>Evolução</span></div>
+          <h3>Recomposição Corporal</h3>
+          <p class="result-objective">Ganho de tônus muscular, postura e definição abdominal</p>
+          <p class="result-quote">“Ajustes estratégicos de treino e dieta para atingir definição visível e postura alinhada, respeitando a rotina diária.”</p>
         </div>
       </article>
 
+      <!-- Card 02 -->
       <article class="result-card fade-up">
-        <div class="result-images" aria-label="Espaços reservados para fotos de antes e depois">
-          <div class="result-placeholder">Antes</div>
-          <div class="result-placeholder">Depois</div>
+        <div class="result-image-frame">
+          <img src="public/resultados/resultado-02.jpg" alt="Antes e depois - Hipertrofia e densidade muscular" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>12 semanas</span><span>Placeholder 02</span></div>
-          <h3>[Nome do aluno]</h3>
-          <p class="result-objective">[Objetivo / resultado]</p>
-          <p class="result-quote">“[Depoimento a inserir após aprovação do aluno.]”</p>
-          <p class="placeholder-note">Conteúdo visual e textual demonstrativo.</p>
+          <div class="result-meta"><span>Treino Individual</span><span>Hipertrofia</span></div>
+          <h3>Densidade e Volume Muscular</h3>
+          <p class="result-objective">Ganho de massa magra com progressão de cargas</p>
+          <p class="result-quote">“Evolução sólida em membros superiores e inferiores através da correção técnica de cada exercício e sobrecarga progressiva.”</p>
         </div>
       </article>
 
+      <!-- Card 03 - Marcio Barbosa -->
       <article class="result-card fade-up">
-        <div class="result-images" aria-label="Espaços reservados para fotos de antes e depois">
-          <div class="result-placeholder">Antes</div>
-          <div class="result-placeholder">Depois</div>
+        <div class="result-image-frame">
+          <img src="public/resultados/resultado-03.jpg" alt="Antes e depois - Marcio Barbosa com avaliação 5 estrelas no Google" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>12 semanas</span><span>Placeholder 03</span></div>
-          <h3>[Nome do aluno]</h3>
-          <p class="result-objective">[Objetivo / resultado]</p>
-          <p class="result-quote">“[Depoimento a inserir após aprovação do aluno.]”</p>
-          <p class="placeholder-note">Conteúdo visual e textual demonstrativo.</p>
+          <div class="result-meta"><span>Marcio Barbosa</span><span>Avaliação Google ★★★★★</span></div>
+          <h3>Emagrecimento e Definição</h3>
+          <p class="result-objective">Redução de gordura corporal e fortalecimento muscular</p>
+          <p class="result-quote">“Caíque é 100%, comprometido, estudioso e talentoso, me ajudou em uma fase mto difícil. Personal top!!”</p>
+        </div>
+      </article>
+
+      <!-- Card 04 -->
+      <article class="result-card fade-up">
+        <div class="result-image-frame">
+          <img src="public/resultados/resultado-04.jpg" alt="Antes e depois - Redução de gordura abdominal e definição" loading="lazy">
+        </div>
+        <div class="result-content">
+          <div class="result-meta"><span>Assessoria Personalizada</span><span>Perda de Gordura</span></div>
+          <h3>Redução Abdominal Expressiva</h3>
+          <p class="result-objective">Eliminação de gordura visceral com preservação de massa muscular</p>
+          <p class="result-quote">“Combinação de musculação intensa e alinhamento calórico para queima de gordura acentuada na região abdominal.”</p>
+        </div>
+      </article>
+
+      <!-- Card 05 -->
+      <article class="result-card fade-up">
+        <div class="result-image-frame">
+          <img src="public/resultados/resultado-05.jpg" alt="Antes e depois - Performance e definição em academia" loading="lazy">
+        </div>
+        <div class="result-content">
+          <div class="result-meta"><span>Treino ao Vivo</span><span>Performance</span></div>
+          <h3>Condicionamento e Tonificação</h3>
+          <p class="result-objective">Definição muscular com alta queima calórica e consistência</p>
+          <p class="result-quote">“‘Feito, bem feito!’ — Intensidade no nível certo e técnica apurada para transformar o corpo com saúde e disposição.”</p>
+        </div>
+      </article>
+
+      <!-- Card 06 -->
+      <article class="result-card fade-up">
+        <div class="result-image-frame">
+          <img src="public/resultados/resultado-06.jpg" alt="Antes e depois - Alinhamento postural e redução de medidas" loading="lazy">
+        </div>
+        <div class="result-content">
+          <div class="result-meta"><span>Assessoria On-line</span><span>Postura e Medidas</span></div>
+          <h3>Alinhamento Postural e Glúteos</h3>
+          <p class="result-objective">Redução de cintura e fortalecimento de cadeia posterior</p>
+          <p class="result-quote">“Avaliação morfológica e postural no início do processo para corrigir desvios e direcionar o estímulo muscular onde mais importa.”</p>
         </div>
       </article>
     </div>
