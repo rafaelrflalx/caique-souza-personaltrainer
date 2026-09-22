@@ -140,13 +140,14 @@
   .hero-portrait .frame{
     position:relative;border:1px solid rgba(255,255,255,.08);padding:0;
     aspect-ratio:4/5;overflow:hidden;border-radius:2px;
-    background:#201F1F;
+background:
+      linear-gradient(180deg,rgba(18,18,18,.03) 0%,rgba(18,18,18,.12) 55%,rgba(18,18,18,.42) 100%),
+      url('public/caique-hero-resized.jpeg') center 46% / cover no-repeat;
+    box-shadow:0 24px 60px rgba(0,0,0,.28);
     display:flex;align-items:center;justify-content:center;
   }
   .hero-portrait img{
-    width:100%;height:100%;object-fit:cover;object-position:top center;
-    filter:grayscale(100%) contrast(1.05) brightness(.88);
-    position:absolute;inset:0;
+    display:none;
   }
   .monogram{position:relative;text-align:center;z-index:1;padding:0 20px;}
   .monogram .rings{position:relative;width:190px;height:190px;margin:0 auto 30px;}
@@ -175,6 +176,8 @@
   .program-phase .phase-number{font-size:12px;font-weight:700;letter-spacing:.14em;color:#777;text-transform:uppercase;}
   .program-phase h3{font-family:var(--body);font-size:clamp(20px,1.9vw,26px);font-weight:600;line-height:1.2;letter-spacing:-.025em;margin-top:24px;}
   .program-phase .phase-desc{font-size:15px;line-height:1.55;color:#4B4B4B;margin-top:12px;}
+  .program-phase-image{width:100%;height:auto;margin-top:24px;border-radius:2px;}
+  .program-phase-video{display:block;width:100%;max-width:280px;aspect-ratio:384/848;object-fit:cover;margin:24px auto 0;border:1px solid #D1D1CE;border-radius:2px;background:#171717;}
 
   /* RESULTADOS E DEPOIMENTOS */
   .results{padding:clamp(110px,14vw,180px) 0;background:#111;color:#F5F6F6;}
@@ -475,8 +478,15 @@
     .included-list {
       grid-template-columns: 1fr;
     }
+    .results {
+      padding: 76px 0;
+    }
+    .results-head {
+      gap: 20px;
+      margin-bottom: 40px;
+    }
     .results-head h2 {
-      font-size: clamp(40px, 12vw, 56px);
+      font-size: clamp(34px, 9vw, 42px);
     }
     .result-images {
       margin-left: -20px;
@@ -571,8 +581,8 @@
     <div class="program-block">
       <div class="program-intro fade-up">
         <div>
-          <span class="phase-number">Programa 01</span>
-          <h2 class="program-title">Como funciona a assessoria on-line</h2>
+          <span class="phase-number">Programa de assessoria on-line</span>
+          <h2 class="program-title">Como funciona a assessoria <br class="mobile-break">on-line</h2>
         </div>
         <p>Um programa de treino e dieta individualizado, pensado para a sua rotina e seu objetivo.</p>
       </div>
@@ -582,16 +592,25 @@
           <p class="phase-number">01 — Avaliação Inicial</p>
           <h3>Avaliação postural e morfológica</h3>
           <p class="phase-desc">No início realizamos uma avaliação postural e morfológica por meio de suas fotos, para planejar seu treino e dieta de acordo com o seu objetivo.</p>
+          <img class="program-phase-image" src="public/avaliacao-morfologica.jpeg" alt="Caique realizando uma avaliação postural e morfológica" width="1200" height="1600" loading="lazy">
         </article>
         <article class="program-phase">
           <p class="phase-number">02 — Metodologia</p>
           <h3>Aplicativo exclusivo</h3>
           <p class="phase-desc">Você terá acesso a um aplicativo exclusivo com seu treino e dieta com vídeos demonstrativos e instruções precisas para cada exercício.</p>
+          <video class="program-phase-video" controls playsinline preload="metadata" poster="public/videos/aplicativo-poster.png" aria-label="Demonstração do aplicativo exclusivo de treinos">
+            <source src="public/videos/aplicativo.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução deste vídeo.
+          </video>
         </article>
         <article class="program-phase">
           <p class="phase-number">03 — Acompanhamento</p>
           <h3>Suporte contínuo 24h</h3>
           <p class="phase-desc">Você recebe suporte 24 horas por dia para esclarecer dúvidas e fazer correções através do WhatsApp, Telegram ou mensagens dentro do próprio aplicativo.</p>
+          <video class="program-phase-video" controls playsinline preload="metadata" poster="public/videos/suporte-chat-poster.png" aria-label="Demonstração do suporte pelo chat do aplicativo">
+            <source src="public/videos/suporte-chat.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução deste vídeo.
+          </video>
         </article>
       </div>
     </div>
@@ -599,10 +618,10 @@
     <div class="program-block">
       <div class="program-intro fade-up">
         <div>
-          <span class="phase-number">Programa 02</span>
-          <h2 class="program-title">Acompanhamento personalizado on-line e ao vivo <span class="badge-availability">(verificar disponibilidade)</span></h2>
+          <span class="phase-number">Programa de personal trainer on-line e ao vivo</span>
+          <h2 class="program-title">Acompanhamento personalizado em tempo real <span class="badge-availability">(verificar disponibilidade)</span></h2>
         </div>
-        <p>Treinos individuais em tempo real com condução técnica direta e ajustes constantes.</p>
+        <p>Treinos individuais com condução técnica e ajustes ainda mais precisos.</p>
       </div>
 
       <div class="program-phases fade-up">
@@ -610,11 +629,19 @@
           <p class="phase-number">01 — Formato</p>
           <h3>Sessões individuais ao vivo</h3>
           <p class="phase-desc">As sessões são realizadas individualmente, em tempo real, por videochamada através do WhatsApp, FaceTime ou Google Meet.</p>
+          <video class="program-phase-video" controls playsinline preload="metadata" poster="public/videos/treino-feminino-poster.png" aria-label="Demonstração de uma sessão individual on-line ao vivo">
+            <source src="public/videos/treino-feminino.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução deste vídeo.
+          </video>
         </article>
         <article class="program-phase">
           <p class="phase-number">02 — Execução</p>
           <h3>Correção técnica em tempo real</h3>
           <p class="phase-desc">Durante o treino, acompanho cada exercício, corrijo sua técnica, ajusto cargas e execuções e conduzo a sessão do início ao fim.</p>
+          <video class="program-phase-video" controls playsinline preload="metadata" poster="public/videos/treino-masculino-poster.png" aria-label="Demonstração de correção técnica durante um treino on-line">
+            <source src="public/videos/treino-masculino.mp4" type="video/mp4">
+            Seu navegador não suporta a reprodução deste vídeo.
+          </video>
         </article>
         <article class="program-phase">
           <p class="phase-number">03 — Evolução</p>
@@ -630,7 +657,7 @@
   <div class="wrap">
     <div class="results-head fade-up">
       <h2>RESULTADOS E TRANSFORMAÇÕES REAIS</h2>
-      <p>Transformações reais de alunos que treinam com método, técnica e acompanhamento individualizado — presencial e on-line.</p>
+      <p>Transformações reais de alunos que treinam com método, técnica e acompanhamento individualizado.</p>
     </div>
 
     <div class="result-list">
@@ -640,10 +667,10 @@
           <img src="public/resultados/resultado-01.jpg" alt="Antes e depois - Recomposição corporal e definição feminina" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>Assessoria On-line</span><span>Evolução</span></div>
+          <div class="result-meta"><span>Amanda Scarpa</span></div>
           <h3>Recomposição Corporal</h3>
-          <p class="result-objective">Ganho de tônus muscular, postura e definição abdominal</p>
-          <p class="result-quote">“Ajustes estratégicos de treino e dieta para atingir definição visível e postura alinhada, respeitando a rotina diária.”</p>
+          <p class="result-objective">Ganho de massa muscular</p>
+          <p class="result-quote">“Ajuste estratégico de treino e dieta para atingir definição visível e melhor postura.”</p>
         </div>
       </article>
 
@@ -653,7 +680,7 @@
           <img src="public/resultados/resultado-02.jpg" alt="Antes e depois - Hipertrofia e densidade muscular" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>Treino Individual</span><span>Hipertrofia</span></div>
+          <div class="result-meta"><span>Pincer Santos</span><span>Hipertrofia</span></div>
           <h3>Densidade e Volume Muscular</h3>
           <p class="result-objective">Ganho de massa magra com progressão de cargas</p>
           <p class="result-quote">“Evolução sólida em membros superiores e inferiores através da correção técnica de cada exercício e sobrecarga progressiva.”</p>
@@ -679,7 +706,7 @@
           <img src="public/resultados/resultado-04.jpg" alt="Antes e depois - Redução de gordura abdominal e definição" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>Assessoria Personalizada</span><span>Perda de Gordura</span></div>
+          <div class="result-meta"><span>José Henrique</span><span>Perda de Gordura</span></div>
           <h3>Redução Abdominal Expressiva</h3>
           <p class="result-objective">Eliminação de gordura visceral com preservação de massa muscular</p>
           <p class="result-quote">“Combinação de musculação intensa e alinhamento calórico para queima de gordura acentuada na região abdominal.”</p>
@@ -692,10 +719,9 @@
           <img src="public/resultados/resultado-05.jpg" alt="Antes e depois - Performance e definição em academia" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>Treino ao Vivo</span><span>Performance</span></div>
+          <div class="result-meta"><span>Gabriela Lourenço</span><span>Performance</span></div>
           <h3>Condicionamento e Tonificação</h3>
-          <p class="result-objective">Definição muscular com alta queima calórica e consistência</p>
-          <p class="result-quote">“‘Feito, bem feito!’ — Intensidade no nível certo e técnica apurada para transformar o corpo com saúde e disposição.”</p>
+          <p class="result-objective">Definição muscular com treino, dieta e consistência.</p>
         </div>
       </article>
 
@@ -705,8 +731,8 @@
           <img src="public/resultados/resultado-06.jpg" alt="Antes e depois - Alinhamento postural e redução de medidas" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>Assessoria On-line</span><span>Postura e Medidas</span></div>
-          <h3>Alinhamento Postural e Glúteos</h3>
+          <div class="result-meta"><span>Yasmin Garcia</span><span>Postura e Medidas</span></div>
+          <h3>Alinhamento postural e melhor qualidade muscular</h3>
           <p class="result-objective">Redução de cintura e fortalecimento de cadeia posterior</p>
           <p class="result-quote">“Avaliação morfológica e postural no início do processo para corrigir desvios e direcionar o estímulo muscular onde mais importa.”</p>
         </div>
@@ -719,30 +745,34 @@
   <div class="wrap">
     <div class="editorial-head fade-up">
       <p class="section-index">01 — Perfil</p>
-      <h2>Treino é técnica.<br>Resultado é consequência.</h2>
+      <h2>Treino com técnica.<br>Sem se machucar.<br>E com o resultado que você busca.</h2>
     </div>
     <div class="about-copy fade-up">
-      <p class="eyebrow">Sobre o treinador</p>
+      <p class="eyebrow">Sobre mim</p>
       <div class="about-copy-inner">
-        <p>Sou <strong>Caique Souza</strong>, profissional de Educação Física e estudante de Nutrição, atendendo em <strong>São Paulo e no Litoral Norte</strong> — Maresias, Boraceia, Camburizinho e região.</p>
-        <p>Trabalho com quem quer <strong>ganhar massa muscular treinando certo</strong>: progressão de carga acompanhada de perto, ajustes constantes e um plano que faz sentido para a sua vida — não o contrário.</p>
+        <p>Sou Personal Trainer, formado em Educação Física, com 10 anos de experiência em treinamento personalizado. Atualmente, estou no último ano da faculdade de Nutrição, ampliando meus conhecimentos para oferecer um serviço ainda mais completo aos meus clientes.</p>
       </div>
     </div>
     <div class="about-facts fade-up">
       <div class="fact">
         <div class="n">01</div>
         <h4>Formação técnica</h4>
-        <p>Profissional de Educação Física, atualmente cursando Nutrição — treino e alimentação lidos com o mesmo rigor.</p>
+        <p>Profissional de Educação Física (UNAERP — Guarujá)<br>Nutrição (Universidade Cruzeiro do Sul)</p>
       </div>
       <div class="fact">
         <div class="n">02</div>
-        <h4>Treino que se adapta a você</h4>
-        <p>Planos individuais de hipertrofia e performance, montados a partir da sua rotina, histórico e objetivo.</p>
+        <h4>Cursos e outras formações</h4>
+        <p>Especialista em biomecânica (TEF)<br>Curso de cinesiologia e postura (Personafit)<br>Especialista em treinamento funcional (Core 360)<br>Avaliador físico credenciado pela FPA</p>
       </div>
       <div class="fact">
         <div class="n">03</div>
         <h4>Disciplina de tatame</h4>
         <p>Praticante de Jiu-Jitsu, com pódio na Copa MB Bank — a mesma exigência do tatame entra no seu treino.</p>
+      </div>
+      <div class="fact">
+        <div class="n">04</div>
+        <h4>Idiomas de atendimento</h4>
+        <p>Português e inglês fluentes</p>
       </div>
     </div>
   </div>
@@ -778,28 +808,25 @@
   <div class="wrap">
     <div class="section-head fade-up">
       <p class="eyebrow">Serviços</p>
-      <h2>Como treinar comigo</h2>
+      <h2>Personal trainer on-line e ao vivo</h2>
     </div>
     <div class="services fade-up">
       <div class="svc">
-        <p class="eyebrow">Presencial</p>
-        <h3>Treino ao vivo</h3>
-        <p>Acompanhamento direto, execução corrigida em tempo real, na região de São Paulo e Litoral Norte.</p>
+        <p>Acompanhamento direto e execução corrigida em tempo real, de onde você estiver.</p>
         <ul>
-          <li>Atendimento <span>São Paulo</span></li>
-          <li>Atendimento <span>Maresias · Boraceia · Camburizinho</span></li>
+          <li>Atendimento <span>Brasil e no mundo</span></li>
           <li>Correção de técnica <span>em tempo real</span></li>
         </ul>
         <a class="btn" href="https://api.whatsapp.com/send?phone=5512997340254" target="_blank" rel="noopener">Consultar disponibilidade</a>
       </div>
       <div class="svc">
         <p class="eyebrow">Online</p>
-        <h3>Consultoria à distância</h3>
+        <h3>Consultoria on-line personalizada</h3>
         <p>Programação de treino personalizada, com acompanhamento remoto — de onde você estiver.</p>
         <ul>
           <li>Plano de treino <span>individual</span></li>
-          <li>Ajustes de carga <span>periódicos</span></li>
-          <li>Suporte direto <span>via WhatsApp</span></li>
+          <li>Ajuste de treinos <span>periódicos</span></li>
+          <li>Suporte direto <span>via WhatsApp, Telegram ou app</span></li>
         </ul>
         <a class="btn" href="https://api.whatsapp.com/send?phone=5512997340254" target="_blank" rel="noopener">Começar consultoria</a>
       </div>
