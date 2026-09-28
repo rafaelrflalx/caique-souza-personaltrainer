@@ -805,6 +805,102 @@ background:
     }
   }
 
+  /* FAQ SECTION */
+  .faq-section {
+    padding: clamp(90px, 12vw, 150px) 0;
+    background: #141414;
+    color: #F5F6F6;
+    border-top: 1px solid var(--panel-edge);
+  }
+  .faq-accordion {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.25s ease;
+  }
+  .faq-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .faq-question {
+    width: 100%;
+    padding: 28px 8px;
+    background: none;
+    border: none;
+    color: var(--ivory);
+    font-family: var(--body);
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .faq-question:hover {
+    color: #FFFFFF;
+  }
+  .faq-icon {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+  }
+  .faq-question:hover .faq-icon {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--ivory);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .faq-icon::before {
+    width: 10px;
+    height: 2px;
+  }
+  .faq-icon::after {
+    width: 2px;
+    height: 10px;
+  }
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+    border-color: var(--bronze);
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    opacity: 0;
+    padding: 0 8px;
+  }
+  .faq-item.active .faq-answer {
+    max-height: 320px;
+    opacity: 1;
+    padding-bottom: 28px;
+  }
+  .faq-answer p {
+    color: var(--grey);
+    font-size: 15.5px;
+    line-height: 1.65;
+    max-width: 68ch;
+    margin: 0;
+  }
+  .faq-answer strong {
+    color: var(--ivory);
+    font-weight: 600;
+  }
+
 </style>
 </head>
 <body>
@@ -816,6 +912,7 @@ background:
       <a href="#depoimentos">Resultados</a>
       <a href="#programa">Programas</a>
       <a href="#sobre">Sobre</a>
+      <a href="#duvidas">Dúvidas</a>
       <a href="#contato">Contato</a>
       <a class="btn btn-solid mobile-only-cta" href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino." target="_blank" rel="noopener">Falar no WhatsApp</a>
     </div>
@@ -1095,6 +1192,68 @@ background:
   </div>
 </section>
 
+<!-- FAQ SECTION -->
+<section id="duvidas" class="faq-section">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <p class="eyebrow">Dúvidas Frequentes</p>
+      <h2>Tudo o que você precisa saber antes de começar.</h2>
+    </div>
+    <div class="faq-accordion fade-up">
+      
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Nunca treinei ou sou iniciante. Consigo acompanhar o programa?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Sim, com certeza.</strong> Todo o planejamento é 100% individualizado. Na avaliação inicial analisamos seu histórico, limitações articulares e nível atual de condicionamento. O treino é construído do zero respeitando seu ritmo, com foco inicial em padrão de movimento e postura correta para evoluir sem risco de lesões.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Preciso treinar em academia convencional ou posso treinar em casa / condomínio?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Você pode treinar onde preferir.</strong> Adequamos a ficha e a metodologia aos equipamentos disponíveis — seja em uma academia completa, na academia do seu condomínio ou até mesmo em casa com peso corporal e acessórios simples.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Como funciona a orientação de alimentação e dieta?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Como estudante no último ano de Nutrição e com formação sólida na área, integro as orientações nutricionais ao seu objetivo de treino (emagrecimento, definição ou hipertrofia). Você recebe diretrizes claras, práticas e calculadas para a sua rotina, sem dietas restritivas insustentáveis.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Como funcionam as correções técnicas e o suporte no dia a dia?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Na <strong>Assessoria On-line</strong>, você grava a execução dos exercícios e envia pelo aplicativo ou WhatsApp para receber feedbacks detalhados em vídeo ou áudio, além de suporte contínuo para tirar dúvidas. No <strong>Personal Ao Vivo</strong>, a condução e a correção acontecem em tempo real durante toda a sessão por videochamada.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Como é feito o pagamento e qual é a duração dos planos?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <p>Trabalhamos com opções de planos mensais, trimestrais e semestrais, com condições facilitadas via PIX ou cartão de crédito. Ao clicar para conversar no WhatsApp, tiramos todas as dúvidas sobre valores e disponibilidade de vagas.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <section class="cta-banner" id="contato">
   <div class="wrap cta-inner fade-up">
@@ -1279,6 +1438,27 @@ background:
       if (activeBtn) movePill(activeBtn);
     });
   })();
+  // FAQ Accordion Control
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.closest('.faq-item');
+      const isActive = item.classList.contains('active');
+      
+      // Close other items for smooth single-open experience
+      document.querySelectorAll('.faq-item').forEach(other => {
+        if (other !== item) {
+          other.classList.remove('active');
+          const otherBtn = other.querySelector('.faq-question');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle clicked item
+      item.classList.toggle('active', !isActive);
+      button.setAttribute('aria-expanded', String(!isActive));
+    });
+  });
+
 </script>
 
 </body>
