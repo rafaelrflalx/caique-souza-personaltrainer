@@ -180,20 +180,47 @@ background:
   .program-phase-video{display:block;width:100%;max-width:280px;aspect-ratio:384/848;object-fit:cover;margin:24px auto 0;border:1px solid #D1D1CE;border-radius:2px;background:#171717;}
 
   /* RESULTADOS E DEPOIMENTOS */
-  .results{padding:clamp(110px,14vw,180px) 0;background:#111;color:#F5F6F6;}
-  .results-head{display:flex;justify-content:space-between;align-items:end;gap:48px;margin-bottom:clamp(60px,8vw,100px);}
-  .results-head h2{font-family:var(--body);font-size:clamp(40px,5.5vw,74px);font-weight:600;line-height:1.02;letter-spacing:-.05em;max-width:14ch;}
-  .results-head p{max-width:34ch;color:#8E8D8B;font-size:14px;line-height:1.5;}
-  .result-list{display:flex;flex-direction:column;gap:clamp(70px,9vw,120px);}
-  .result-card{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(240px,.6fr);gap:clamp(36px,6vw,84px);align-items:start;}
-  .result-image-frame{position:relative;border:1px solid rgba(255,255,255,.12);background:#171717;border-radius:2px;overflow:hidden;}
-  .result-image-frame img{width:100%;height:auto;max-height:680px;object-fit:contain;background:#141414;display:block;}
-  .result-content{padding-top:18px;border-top:1px solid rgba(255,255,255,.18);}
-  .result-meta{display:flex;justify-content:space-between;gap:20px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .results{padding:clamp(90px,11vw,140px) 0;background:#111;color:#F5F6F6;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);}
+  .results-head{display:flex;justify-content:space-between;align-items:end;gap:48px;margin-bottom:clamp(32px,4vw,48px);}
+  .results-head h2{font-family:var(--body);font-size:clamp(38px,5vw,64px);font-weight:600;line-height:1.02;letter-spacing:-.05em;max-width:14ch;}
+  .results-head p{max-width:38ch;color:#A5A5A5;font-size:14px;line-height:1.6;}
+  .results-side{display:flex;flex-direction:column;align-items:flex-end;gap:18px;}
+  .result-controls{display:flex;gap:10px;}
+  .result-arrow{display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(255,255,255,.04);color:#F5F6F6;font-size:18px;cursor:pointer;transition:.2s ease;}
+  .result-arrow:hover:not(:disabled){background:#F5F6F6;color:#111;border-color:#F5F6F6;}
+  .result-arrow:disabled{opacity:.2;cursor:default;}
+  .result-list{display:flex;gap:clamp(18px,2.4vw,30px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-inline:contain;padding:12px 0 24px;}
+  .result-list::-webkit-scrollbar{display:none;}
+  .result-card{
+    --tilt-x:0deg;--tilt-y:0deg;--lift:0px;
+    position:relative;display:flex;flex:0 0 calc((100% - clamp(36px,4.8vw,60px))/3);flex-direction:column;min-width:0;
+    scroll-snap-align:start;background:linear-gradient(145deg,#1A1A1A 0%,#111 100%);color:#F5F6F6;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:8px;
+    box-shadow:0 14px 34px rgba(0,0,0,.35),0 3px 8px rgba(0,0,0,.2);
+    transform:perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(var(--lift));transform-style:preserve-3d;
+    transition:transform .32s cubic-bezier(.2,.75,.25,1),box-shadow .32s ease,border-color .32s ease;will-change:transform;
+  }
+  .result-card.is-interacting{--lift:-7px;border-color:rgba(255,255,255,.35);box-shadow:0 26px 56px rgba(0,0,0,.5),0 6px 16px rgba(0,0,0,.3);}
+  .result-image-frame{position:relative;background:linear-gradient(145deg,#181818 0%,#0E0E0E 100%);border:1px solid rgba(255,255,255,.08);border-radius:12px 12px 7px 7px;overflow:hidden;isolation:isolate;}
+  .result-image-frame::after{content:'';position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);pointer-events:none;}
+  .result-image-frame img{width:100%;aspect-ratio:4/5;object-fit:contain;object-position:center;background:#0E0E0E;display:block;transition:transform .6s cubic-bezier(.2,.75,.25,1),filter .4s ease;will-change:transform;}
+  .result-card.is-interacting .result-image-frame img{transform:scale(1.035);filter:contrast(1.025) saturate(1.035);}
+  .result-content{padding:20px 14px 18px;display:flex;flex-direction:column;flex:1;}
+  @media (hover:hover) and (pointer:fine){
+    .result-card:hover{--lift:-7px;border-color:rgba(255,255,255,.35);box-shadow:0 26px 56px rgba(0,0,0,.5),0 6px 16px rgba(0,0,0,.3);}
+    .result-card:hover .result-image-frame img{transform:scale(1.035);filter:contrast(1.025) saturate(1.035);}
+  }
+  .result-meta{display:flex;justify-content:space-between;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1);}
   .result-meta span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#A5A5A5;}
-  .result-card h3{font-family:var(--body);font-size:clamp(24px,2.3vw,34px);font-weight:600;letter-spacing:-.035em;margin:26px 0 8px;}
-  .result-objective{font-size:14px;color:#8E8D8B;margin-bottom:clamp(24px,3.5vw,44px);}
-  .result-quote{font-size:clamp(16px,1.4vw,20px);line-height:1.55;letter-spacing:-.015em;color:#D1D1D1;}
+  .result-card h3{font-family:var(--body);font-size:clamp(19px,1.7vw,24px);font-weight:600;line-height:1.15;letter-spacing:-.03em;margin:18px 0 8px;color:#F5F6F6;}
+  .result-objective{font-size:13px;color:#8E8D8B;line-height:1.5;}
+  .result-details{margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);}
+  .result-details summary{display:flex;justify-content:space-between;align-items:center;gap:12px;list-style:none;cursor:pointer;color:#C7C4C1;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+  .result-details summary::-webkit-details-marker{display:none;}
+  .result-details summary::after{content:'+';font-size:18px;font-weight:400;}
+  .result-details[open] summary::after{content:'−';}
+  .result-quote{font-size:13px;line-height:1.55;letter-spacing:-.01em;color:#A5A5A5;padding-top:12px;}
+  .results-hint{display:none;color:#676767;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-top:16px;text-align:center;}
+
 
   section{padding:clamp(110px,14vw,180px) 0;scroll-margin-top:72px;}
   .section-head,
@@ -403,13 +430,14 @@ background:
       align-items: flex-start;
       flex-direction: column;
     }
-    .result-list {
-      gap: 96px;
+    .results-side {
+      width: 100%;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
     }
     .result-card {
-      grid-template-columns: 1fr;
-      gap: 30px;
-      max-width: 620px;
+      flex: 0 0 calc((100% - 20px) / 2);
     }
 
     /* EDITORIAL SECTIONS */
@@ -483,14 +511,31 @@ background:
     }
     .results-head {
       gap: 20px;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
     }
     .results-head h2 {
       font-size: clamp(34px, 9vw, 42px);
     }
-    .result-images {
-      margin-left: -20px;
-      margin-right: -20px;
+    .results-side {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .results-side > p {
+      font-size: 13px;
+    }
+    .result-arrow {
+      width: 42px;
+      height: 42px;
+    }
+    .result-list {
+      gap: 14px;
+    }
+    .result-card {
+      flex: 0 0 86%;
+    }
+    .results-hint {
+      display: block;
     }
     .section-head h2 {
       font-size: clamp(40px, 12vw, 56px);
@@ -656,39 +701,47 @@ background:
 <section class="results" id="depoimentos">
   <div class="wrap">
     <div class="results-head fade-up">
-      <h2>RESULTADOS E TRANSFORMAÇÕES REAIS</h2>
-      <p>Transformações reais de alunos que treinam com método, técnica e acompanhamento individualizado.</p>
+      <div>
+        <h2>RESULTADOS E TRANSFORMAÇÕES REAIS</h2>
+      </div>
+      <div class="results-side">
+        <p>Transformações reais de alunos que treinam com método, técnica e acompanhamento individualizado.</p>
+        <div class="result-controls" role="group" aria-label="Navegação dos resultados">
+          <button class="result-arrow result-prev" type="button" aria-label="Ver resultados anteriores" aria-controls="result-list">&#8592;</button>
+          <button class="result-arrow result-next" type="button" aria-label="Ver próximos resultados" aria-controls="result-list">&#8594;</button>
+        </div>
+      </div>
     </div>
 
-    <div class="result-list">
-      <!-- Card 01 -->
-      <article class="result-card fade-up">
+    <div class="result-list" id="result-list" aria-label="Resultados dos alunos" tabindex="0">
+      <!-- Card 01 - Amanda Scarpa -->
+      <article class="result-card">
         <div class="result-image-frame">
-          <img src="public/resultados/resultado-01.jpg" alt="Antes e depois - Recomposição corporal e definição feminina" loading="lazy">
+          <img src="public/resultados/resultado-01.jpg" alt="Antes e depois - Amanda Scarpa com recomposição corporal e definição feminina" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>Amanda Scarpa</span></div>
+          <div class="result-meta"><span>Amanda Scarpa</span><span>Recomposição</span></div>
           <h3>Recomposição Corporal</h3>
-          <p class="result-objective">Ganho de massa muscular</p>
-          <p class="result-quote">“Ajuste estratégico de treino e dieta para atingir definição visível e melhor postura.”</p>
+          <p class="result-objective">Ganho de massa muscular com perda de gordura</p>
+          <details class="result-details"><summary>Ver detalhes</summary><p class="result-quote">“Ajuste estratégico de treino e dieta para atingir definição visível e melhor postura.”</p></details>
         </div>
       </article>
 
-      <!-- Card 02 -->
-      <article class="result-card fade-up">
+      <!-- Card 02 - Pincer Santos -->
+      <article class="result-card">
         <div class="result-image-frame">
-          <img src="public/resultados/resultado-02.jpg" alt="Antes e depois - Hipertrofia e densidade muscular" loading="lazy">
+          <img src="public/resultados/resultado-02.jpg" alt="Antes e depois - Pincer Santos com hipertrofia e densidade muscular" loading="lazy">
         </div>
         <div class="result-content">
           <div class="result-meta"><span>Pincer Santos</span><span>Hipertrofia</span></div>
           <h3>Densidade e Volume Muscular</h3>
           <p class="result-objective">Ganho de massa magra com progressão de cargas</p>
-          <p class="result-quote">“Evolução sólida em membros superiores e inferiores através da correção técnica de cada exercício e sobrecarga progressiva.”</p>
+          <details class="result-details"><summary>Ver detalhes</summary><p class="result-quote">“Evolução sólida em membros superiores e inferiores através da correção técnica de cada exercício e sobrecarga progressiva.”</p></details>
         </div>
       </article>
 
       <!-- Card 03 - Marcio Barbosa -->
-      <article class="result-card fade-up">
+      <article class="result-card">
         <div class="result-image-frame">
           <img src="public/resultados/resultado-03.jpg" alt="Antes e depois - Marcio Barbosa com avaliação 5 estrelas no Google" loading="lazy">
         </div>
@@ -696,48 +749,50 @@ background:
           <div class="result-meta"><span>Marcio Barbosa</span><span>Avaliação Google ★★★★★</span></div>
           <h3>Emagrecimento e Definição</h3>
           <p class="result-objective">Redução de gordura corporal e fortalecimento muscular</p>
-          <p class="result-quote">“Caíque é 100%, comprometido, estudioso e talentoso, me ajudou em uma fase mto difícil. Personal top!!”</p>
+          <details class="result-details"><summary>Ver depoimento</summary><p class="result-quote">“Caíque é 100%, comprometido, estudioso e talentoso, me ajudou em uma fase mto difícil. Personal top!!”</p></details>
         </div>
       </article>
 
-      <!-- Card 04 -->
-      <article class="result-card fade-up">
+      <!-- Card 04 - José Henrique -->
+      <article class="result-card">
         <div class="result-image-frame">
-          <img src="public/resultados/resultado-04.jpg" alt="Antes e depois - Redução de gordura abdominal e definição" loading="lazy">
+          <img src="public/resultados/resultado-04.jpg" alt="Antes e depois - José Henrique com redução de gordura abdominal e definição" loading="lazy">
         </div>
         <div class="result-content">
           <div class="result-meta"><span>José Henrique</span><span>Perda de Gordura</span></div>
           <h3>Redução Abdominal Expressiva</h3>
           <p class="result-objective">Eliminação de gordura visceral com preservação de massa muscular</p>
-          <p class="result-quote">“Combinação de musculação intensa e alinhamento calórico para queima de gordura acentuada na região abdominal.”</p>
+          <details class="result-details"><summary>Ver detalhes</summary><p class="result-quote">“Combinação de musculação intensa e alinhamento calórico para queima de gordura acentuada na região abdominal.”</p></details>
         </div>
       </article>
 
-      <!-- Card 05 -->
-      <article class="result-card fade-up">
+      <!-- Card 05 - Gabriela Lourenço -->
+      <article class="result-card">
         <div class="result-image-frame">
-          <img src="public/resultados/resultado-05.jpg" alt="Antes e depois - Performance e definição em academia" loading="lazy">
+          <img src="public/resultados/resultado-05.jpg" alt="Antes e depois - Gabriela Lourenço com performance e definição em academia" loading="lazy">
         </div>
         <div class="result-content">
           <div class="result-meta"><span>Gabriela Lourenço</span><span>Performance</span></div>
           <h3>Condicionamento e Tonificação</h3>
-          <p class="result-objective">Definição muscular com treino, dieta e consistência.</p>
+          <p class="result-objective">Definição muscular com treino, dieta e consistência</p>
+          <details class="result-details"><summary>Ver detalhes</summary><p class="result-quote">Treino focado em definição muscular, resistência e consistência para resultado visível.</p></details>
         </div>
       </article>
 
-      <!-- Card 06 -->
-      <article class="result-card fade-up">
+      <!-- Card 06 - Yasmin Garcia -->
+      <article class="result-card">
         <div class="result-image-frame">
-          <img src="public/resultados/resultado-06.jpg" alt="Antes e depois - Alinhamento postural e redução de medidas" loading="lazy">
+          <img src="public/resultados/resultado-06.jpg" alt="Antes e depois - Yasmin Garcia com alinhamento postural e redução de medidas" loading="lazy">
         </div>
         <div class="result-content">
           <div class="result-meta"><span>Yasmin Garcia</span><span>Postura e Medidas</span></div>
-          <h3>Alinhamento postural e melhor qualidade muscular</h3>
+          <h3>Alinhamento Postural e Redução de Medidas</h3>
           <p class="result-objective">Redução de cintura e fortalecimento de cadeia posterior</p>
-          <p class="result-quote">“Avaliação morfológica e postural no início do processo para corrigir desvios e direcionar o estímulo muscular onde mais importa.”</p>
+          <details class="result-details"><summary>Ver detalhes</summary><p class="result-quote">“Avaliação morfológica e postural no início do processo para corrigir desvios e direcionar o estímulo muscular onde mais importa.”</p></details>
         </div>
       </article>
     </div>
+    <p class="results-hint">Deslize para ver mais resultados</p>
   </div>
 </section>
 
@@ -903,6 +958,58 @@ background:
       menuToggle.setAttribute('aria-expanded', 'false');
     }
   });
+
+  // Controles do Carrossel de Resultados
+  const resultList = document.querySelector('.result-list');
+  const resultPrev = document.querySelector('.result-prev');
+  const resultNext = document.querySelector('.result-next');
+
+  if (resultList && resultPrev && resultNext) {
+    const resultStep = () => {
+      const card = resultList.querySelector('.result-card');
+      const gap = parseFloat(getComputedStyle(resultList).columnGap || getComputedStyle(resultList).gap) || 20;
+      return (card ? card.getBoundingClientRect().width : 340) + gap;
+    };
+
+    const updateResultControls = () => {
+      const maxScroll = resultList.scrollWidth - resultList.clientWidth;
+      resultPrev.disabled = resultList.scrollLeft <= 4;
+      resultNext.disabled = resultList.scrollLeft >= maxScroll - 4;
+    };
+
+    resultPrev.addEventListener('click', () => resultList.scrollBy({ left: -resultStep(), behavior: 'smooth' }));
+    resultNext.addEventListener('click', () => resultList.scrollBy({ left: resultStep(), behavior: 'smooth' }));
+    resultList.addEventListener('scroll', updateResultControls, { passive: true });
+    resultList.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      resultList.scrollBy({ left: event.key === 'ArrowRight' ? resultStep() : -resultStep(), behavior: 'smooth' });
+    });
+    window.addEventListener('resize', updateResultControls);
+    updateResultControls();
+
+    const finePointer = window.matchMedia('(hover:hover) and (pointer:fine)');
+    resultList.querySelectorAll('.result-card').forEach((card) => {
+      card.addEventListener('pointermove', (event) => {
+        if (!finePointer.matches) return;
+        const bounds = card.getBoundingClientRect();
+        const horizontal = (event.clientX - bounds.left) / bounds.width - .5;
+        const vertical = (event.clientY - bounds.top) / bounds.height - .5;
+        card.style.setProperty('--tilt-x', `${vertical * -3}deg`);
+        card.style.setProperty('--tilt-y', `${horizontal * 3}deg`);
+      });
+
+      card.addEventListener('pointerdown', () => card.classList.add('is-interacting'));
+      const clearInteract = () => {
+        card.classList.remove('is-interacting');
+        card.style.setProperty('--tilt-x', '0deg');
+        card.style.setProperty('--tilt-y', '0deg');
+      };
+      card.addEventListener('pointerup', clearInteract);
+      card.addEventListener('pointerleave', clearInteract);
+      card.addEventListener('pointercancel', clearInteract);
+    });
+  }
 </script>
 
 </body>
