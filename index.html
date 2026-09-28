@@ -308,8 +308,35 @@ background:
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:20px;
+    gap:24px;
     flex-wrap:wrap;
+  }
+  .results-action-group{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  @media (max-width: 768px) {
+    .block-transition-wrap{
+      flex-direction:column-reverse;
+      align-items:flex-start;
+      gap:24px;
+    }
+    .results-action-group{
+      flex-direction:column;
+      align-items:stretch;
+      width:100%;
+      gap:16px;
+    }
+    .results-action-group .btn{
+      width:100%;
+      justify-content:center;
+      text-align:center;
+    }
+    .results-action-group .transition-hint-down{
+      justify-content:center;
+    }
   }
   .transition-pill{
     display:inline-flex;
@@ -1157,12 +1184,15 @@ background:
     </div>
     <p class="results-hint">Deslize para ver mais resultados</p>
 
-    <!-- Transição de Bloco Editorial -->
+    <!-- Transição de Bloco Editorial & Ação de Resultados -->
     <div class="block-transition-wrap fade-up">
+      <div class="results-action-group">
+        <a class="btn btn-solid" href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vi%20os%20resultados%20dos%20alunos%20e%20gostaria%20de%20iniciar%20minha%20transforma%C3%A7%C3%A3o." target="_blank" rel="noopener">Quero ter resultados assim →</a>
+        <a class="transition-hint-down" href="#programa">Conheça os programas detalhados ↓</a>
+      </div>
       <div class="transition-pill">
         <span>Estrutura &amp; Metodologia</span>
       </div>
-      <a class="transition-hint-down" href="#programa">Conheça os programas detalhados ↓</a>
     </div>
   </div>
 </section>
