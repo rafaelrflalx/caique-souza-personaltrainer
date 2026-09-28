@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Caique Souza | Personal Trainer</title>
-<meta name="description" content="Treinamento personalizado para hipertrofia, emagrecimento, força e performance em São Paulo. Agende sua avaliação.">
+<meta name="description" content="Treinamento personalizado para hipertrofia, emagrecimento, força e performance com método seguro. Atendimento online e presencial com Treinador Caique Souza.">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://caique-souza-personaltrainer.vercel.app">
 <meta property="og:title" content="Caique Souza | Personal Trainer">
-<meta property="og:description" content="Treinamento personalizado para hipertrofia, emagrecimento, força e performance em São Paulo. Agende sua avaliação.">
+<meta property="og:description" content="Treinamento personalizado para hipertrofia, emagrecimento, força e performance com método seguro. Atendimento online e presencial com Treinador Caique Souza.">
 <meta property="og:image" content="https://caique-souza-personaltrainer.vercel.app/public/og-image.jpg">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Caique Souza Personal Trainer">
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://caique-souza-personaltrainer.vercel.app">
 <meta name="twitter:title" content="Caique Souza | Personal Trainer">
-<meta name="twitter:description" content="Treinamento personalizado para hipertrofia, emagrecimento, força e performance em São Paulo. Agende sua avaliação.">
+<meta name="twitter:description" content="Treinamento personalizado para hipertrofia, emagrecimento, força e performance com método seguro. Atendimento online e presencial com Treinador Caique Souza.">
 <meta name="twitter:image" content="https://caique-souza-personaltrainer.vercel.app/public/og-image.jpg">
 
 <!-- Favicon & Touch Icons -->
@@ -901,7 +901,170 @@ background:
     font-weight: 600;
   }
 
+  /* SCROLL OFFSET FOR STICKY HEADER */
+  section[id], article[id], div[id] {
+    scroll-margin-top: 96px;
+  }
+
+  /* HERO TRUST BADGE */
+  .hero-ctas {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .hero-trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--grey);
+    letter-spacing: 0.02em;
+  }
+  .hero-trust-badge .stars {
+    color: #F5A623;
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  /* HERO STATS BAR */
+  .hero-stats-wrap {
+    width: 100%;
+    margin-top: clamp(64px, 8vw, 96px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(18, 18, 18, 0.6);
+    backdrop-filter: blur(8px);
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .hero-stat {
+    padding: 28px 24px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .hero-stat .stat-number {
+    font-family: var(--body);
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--ivory);
+    line-height: 1.1;
+  }
+  .hero-stat .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--grey-dim);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 820px) {
+    .hero-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-stat {
+      padding: 20px 16px;
+    }
+    .hero-stat:nth-child(1),
+    .hero-stat:nth-child(2) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  }
+  @media (max-width: 480px) {
+    .hero-stats {
+      grid-template-columns: 1fr;
+    }
+    .hero-stat {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .hero-stat:last-child {
+      border-bottom: none;
+    }
+  }
+
 </style>
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://caique-souza-personaltrainer.vercel.app/#caique",
+      "name": "Caique Souza",
+      "jobTitle": "Personal Trainer e Nutricionista em formação",
+      "description": "Profissional de Educação Física com 10 anos de experiência em treinamento personalizado, especialista em biomecânica e graduando em Nutrição.",
+      "url": "https://caique-souza-personaltrainer.vercel.app",
+      "sameAs": [
+        "https://www.instagram.com/treinadorcaique/",
+        "https://www.youtube.com/@treinadorcaique",
+        "https://linktr.ee/treinadorcaique"
+      ]
+    },
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "https://caique-souza-personaltrainer.vercel.app/#business",
+      "name": "Treinador Caique Souza - Consultoria e Personal Trainer",
+      "url": "https://caique-souza-personaltrainer.vercel.app",
+      "telephone": "+5512997340254",
+      "priceRange": "$$",
+      "areaServed": ["São Paulo", "Litoral Norte", "Online Global"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://caique-souza-personaltrainer.vercel.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Nunca treinei ou sou iniciante. Consigo acompanhar o programa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim, com certeza. Todo o planejamento é 100% individualizado. Na avaliação inicial analisamos seu histórico, limitações articulares e nível atual de condicionamento, com foco em padrão de movimento e postura correta para evoluir sem risco de lesões."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Preciso treinar em academia convencional ou posso treinar em casa / condomínio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Você pode treinar onde preferir. Adequamos a ficha e a metodologia aos equipamentos disponíveis — seja em uma academia completa, na academia do seu condomínio ou até mesmo em casa com peso corporal e acessórios simples."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funciona a orientação de alimentação e dieta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Como estudante no último ano de Nutrição e com formação sólida na área, integro as orientações nutricionais ao seu objetivo de treino (emagrecimento, definição ou hipertrofia), sem dietas restritivas insustentáveis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funcionam as correções técnicas e o suporte no dia a dia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Na Assessoria On-line, você grava a execução dos exercícios e envia pelo aplicativo ou WhatsApp para feedbacks detalhados em vídeo ou áudio. No Personal Ao Vivo, a condução e a correção acontecem em tempo real durante toda a sessão por videochamada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como é feito o pagamento e qual é a duração dos planos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trabalhamos com opções de planos mensais, trimestrais e semestrais, com condições facilitadas via PIX ou cartão de crédito."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 </head>
 <body>
 
@@ -934,11 +1097,39 @@ background:
       <p class="lede">Resultado de 1 ano em apenas 3 meses</p>
       <div class="hero-ctas">
         <a class="btn btn-solid" href="#programa">Conhecer os programas</a>
+        <div class="hero-trust-badge">
+          <span class="stars">★★★★★</span>
+          <span>10 anos de experiência · Avaliações 100% positivas</span>
+        </div>
       </div>
     </div>
     <div class="hero-portrait">
       <div class="frame">
         <!-- Hero portrait loaded via CSS background-image on .frame -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Authority Stats Strip -->
+  <div class="hero-stats-wrap fade-up">
+    <div class="wrap">
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Anos de experiência</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-number">Ed. Física & Nutrição</span>
+          <span class="stat-label">Dupla formação técnica</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Base em biomecânica</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-number">Global</span>
+          <span class="stat-label">Atendimento online</span>
+        </div>
       </div>
     </div>
   </div>
