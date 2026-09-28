@@ -707,6 +707,104 @@ background:
       font-size: clamp(26px, 8vw, 32px) !important;
     }
   }
+  /* FLOATING WHATSAPP BUTTON */
+  .whatsapp-float-wrap {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+  }
+  .whatsapp-float-btn {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35), 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    text-decoration: none;
+    animation: floatFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  }
+  .whatsapp-float-btn:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5), 0 6px 16px rgba(0, 0, 0, 0.4);
+    color: #FFFFFF;
+  }
+  .whatsapp-float-btn:active {
+    transform: scale(0.96);
+  }
+  .whatsapp-pulse {
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 211, 102, 0.7);
+    animation: waPulse 2.4s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+    pointer-events: none;
+  }
+  @keyframes waPulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.35); opacity: 0; }
+    100% { transform: scale(0.95); opacity: 0; }
+  }
+  @keyframes floatFadeIn {
+    from { opacity: 0; transform: scale(0.7) translateY(12px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .whatsapp-tooltip {
+    position: absolute;
+    right: calc(100% + 14px);
+    white-space: nowrap;
+    background: rgba(24, 24, 24, 0.94);
+    backdrop-filter: blur(8px);
+    color: #F5F6F6;
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    border-width: 5px 0 5px 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(24, 24, 24, 0.94);
+  }
+  .whatsapp-float-btn:hover .whatsapp-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  @media (max-width: 768px) {
+    .whatsapp-float-wrap {
+      bottom: 20px;
+      right: 20px;
+    }
+    .whatsapp-float-btn {
+      width: 54px;
+      height: 54px;
+    }
+    .whatsapp-tooltip {
+      display: none;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -1033,6 +1131,24 @@ background:
     </div>
   </div>
 </footer>
+
+<!-- Floating WhatsApp Button -->
+<aside class="whatsapp-float-wrap" aria-label="Contato direto via WhatsApp">
+  <a 
+    href="https://api.whatsapp.com/send?phone=5512997340254" 
+    class="whatsapp-float-btn" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    aria-label="Falar com Caique no WhatsApp"
+    id="whatsapp-float"
+  >
+    <span class="whatsapp-pulse"></span>
+    <span class="whatsapp-tooltip">Falar com o Treinador</span>
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 20.15C10.57 20.15 9.11 19.76 7.82 19L7.52 18.82L4.41 19.64L5.24 16.61L5.04 16.29C4.21 14.97 3.77 13.46 3.77 11.91C3.77 7.36 7.48 3.65 12.04 3.65C14.25 3.65 16.32 4.51 17.88 6.07C19.44 7.63 20.3 9.7 20.3 11.92C20.29 16.47 16.59 20.15 12.05 20.15ZM16.58 14.39C16.33 14.27 15.11 13.67 14.88 13.58C14.66 13.5 14.49 13.46 14.33 13.7C14.16 13.95 13.69 14.5 13.54 14.67C13.4 14.83 13.25 14.85 13 14.73C12.75 14.61 11.95 14.35 11 13.5C10.26 12.84 9.76 12.02 9.61 11.77C9.47 11.53 9.6 11.39 9.72 11.27C9.83 11.16 9.97 10.98 10.09 10.84C10.21 10.7 10.26 10.59 10.34 10.43C10.42 10.26 10.38 10.12 10.32 10C10.26 9.88 9.76 8.66 9.56 8.16C9.36 7.68 9.15 7.74 9 7.73C8.86 7.73 8.69 7.72 8.52 7.72C8.35 7.72 8.08 7.78 7.85 8.03C7.62 8.28 6.98 8.88 6.98 10.1C6.98 11.32 7.87 12.5 8 12.67C8.12 12.83 9.74 15.34 12.23 16.41C12.82 16.67 13.28 16.82 13.64 16.94C14.23 17.13 14.78 17.1 15.21 17.04C15.69 16.97 16.68 16.44 16.89 15.85C17.09 15.26 17.09 14.76 17.03 14.66C16.97 14.55 16.83 14.51 16.58 14.39Z"/>
+    </svg>
+  </a>
+</aside>
 
 <script>
   const observer = new IntersectionObserver((entries)=>{
