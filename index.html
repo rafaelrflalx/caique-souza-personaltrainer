@@ -182,6 +182,69 @@ background:
   .program-phase-image{width:100%;height:auto;margin-top:24px;border-radius:2px;}
   .program-phase-video{display:block;width:100%;max-width:280px;aspect-ratio:384/848;object-fit:cover;margin:24px auto 0;border:1px solid #D1D1CE;border-radius:2px;background:#171717;}
 
+  /* SEGMENTED CONTROL — PROGRAMAS */
+  .program-tabs-header{
+    margin-bottom:clamp(52px,7vw,80px);
+  }
+  .program-eyebrow{
+    font-family:var(--body);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:#888;
+    margin-bottom:28px;
+  }
+  .program-seg{
+    display:inline-flex;
+    gap:0;
+    background:#E4E4E1;
+    border-radius:12px;
+    padding:4px;
+    position:relative;
+  }
+  .program-seg-btn{
+    position:relative;
+    z-index:1;
+    padding:12px 28px;
+    border:none;
+    background:transparent;
+    border-radius:9px;
+    font-family:var(--body);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.04em;
+    color:#777;
+    cursor:pointer;
+    transition:color .22s ease;
+    white-space:nowrap;
+  }
+  .program-seg-btn.active{
+    color:#171717;
+  }
+  .program-seg-pill{
+    position:absolute;
+    top:4px;
+    left:4px;
+    height:calc(100% - 8px);
+    background:#fff;
+    border-radius:9px;
+    box-shadow:0 1px 4px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.08);
+    transition:transform .28s cubic-bezier(.35,.75,.25,1), width .28s cubic-bezier(.35,.75,.25,1);
+    pointer-events:none;
+  }
+  .program-tab-panel{
+    display:none;
+    animation:fadePanel .32s ease;
+  }
+  .program-tab-panel.active{
+    display:block;
+  }
+  @keyframes fadePanel{
+    from{opacity:0;transform:translateY(10px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
   /* RESULTADOS E DEPOIMENTOS */
   .results{
     padding:44px 0 clamp(90px,11vw,130px);
@@ -476,6 +539,16 @@ background:
     .program-phase h3 {
       margin-top: 18px;
       max-width: none;
+    }
+    .program-seg {
+      width: 100%;
+      display: flex;
+    }
+    .program-seg-btn {
+      flex: 1;
+      padding: 12px 14px;
+      font-size: 12px;
+      text-align: center;
     }
     .results-head {
       align-items: flex-start;
@@ -782,16 +855,27 @@ background:
 
 <section class="program" id="programa">
   <div class="wrap">
-    <div class="program-block">
-      <div class="program-intro fade-up">
+
+    <!-- Segmented Control Header -->
+    <div class="program-tabs-header fade-up">
+      <p class="program-eyebrow">02 — Programas</p>
+      <div class="program-seg" role="tablist" aria-label="Selecionar programa">
+        <div class="program-seg-pill" id="seg-pill" aria-hidden="true"></div>
+        <button class="program-seg-btn active" id="tab-online" role="tab" aria-selected="true" aria-controls="panel-online">Assessoria On-line</button>
+        <button class="program-seg-btn" id="tab-live" role="tab" aria-selected="false" aria-controls="panel-live">Personal Ao Vivo</button>
+      </div>
+    </div>
+
+    <!-- Tab Panel 1: Assessoria On-line -->
+    <div class="program-tab-panel active fade-up" id="panel-online" role="tabpanel" aria-labelledby="tab-online">
+      <div class="program-intro">
         <div>
           <span class="phase-number">Programa de assessoria on-line</span>
           <h2 class="program-title">Como funciona a assessoria <br class="mobile-break">on-line</h2>
         </div>
         <p>Um programa de treino e dieta individualizado, pensado para a sua rotina e seu objetivo.</p>
       </div>
-
-      <div class="program-phases fade-up">
+      <div class="program-phases">
         <article class="program-phase">
           <p class="phase-number">01 — Avaliação Inicial</p>
           <h3>Avaliação postural e morfológica</h3>
@@ -819,16 +903,16 @@ background:
       </div>
     </div>
 
-    <div class="program-block">
-      <div class="program-intro fade-up">
+    <!-- Tab Panel 2: Personal Ao Vivo -->
+    <div class="program-tab-panel" id="panel-live" role="tabpanel" aria-labelledby="tab-live">
+      <div class="program-intro">
         <div>
           <span class="phase-number">Programa de personal trainer on-line e ao vivo</span>
           <h2 class="program-title">Acompanhamento personalizado em tempo real <span class="badge-availability">(verificar disponibilidade)</span></h2>
         </div>
         <p>Treinos individuais com condução técnica e ajustes ainda mais precisos.</p>
       </div>
-
-      <div class="program-phases fade-up">
+      <div class="program-phases">
         <article class="program-phase">
           <p class="phase-number">01 — Formato</p>
           <h3>Sessões individuais ao vivo</h3>
@@ -854,6 +938,7 @@ background:
         </article>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -1071,6 +1156,50 @@ background:
       card.addEventListener('pointercancel', clearInteract);
     });
   }
+
+  // ===== Segmented Control — Programas =====
+  (function () {
+    const seg = document.querySelector('.program-seg');
+    if (!seg) return;
+
+    const pill    = document.getElementById('seg-pill');
+    const buttons = seg.querySelectorAll('.program-seg-btn');
+    const panels  = document.querySelectorAll('.program-tab-panel');
+
+    function movePill(activeBtn) {
+      // Position pill over the active button
+      pill.style.width  = activeBtn.offsetWidth  + 'px';
+      pill.style.transform = 'translateX(' + activeBtn.offsetLeft + 'px)';
+    }
+
+    function activateTab(index) {
+      buttons.forEach((btn, i) => {
+        const isActive = i === index;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive);
+      });
+      panels.forEach((panel, i) => {
+        panel.classList.toggle('active', i === index);
+      });
+      movePill(buttons[index]);
+    }
+
+    buttons.forEach((btn, i) => {
+      btn.addEventListener('click', () => activateTab(i));
+    });
+
+    // Init pill on first active button
+    requestAnimationFrame(() => {
+      const activeBtn = seg.querySelector('.program-seg-btn.active');
+      if (activeBtn) movePill(activeBtn);
+    });
+
+    // Re-position pill on resize
+    window.addEventListener('resize', () => {
+      const activeBtn = seg.querySelector('.program-seg-btn.active');
+      if (activeBtn) movePill(activeBtn);
+    });
+  })();
 </script>
 
 </body>
