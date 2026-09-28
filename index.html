@@ -302,14 +302,11 @@ background:
   .result-list{display:flex;gap:clamp(18px,2.4vw,30px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-inline:contain;padding:12px 0 24px;}
   .result-list::-webkit-scrollbar{display:none;}
   .block-transition-wrap{
-    margin-top:clamp(54px,7vw,90px);
-    padding-top:clamp(28px,3.5vw,40px);
+    margin-top:clamp(50px,6.5vw,84px);
+    padding-top:clamp(28px,3.5vw,36px);
     border-top:1px solid rgba(255,255,255,.08);
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    gap:24px;
-    flex-wrap:wrap;
   }
   .results-action-group{
     display:flex;
@@ -319,9 +316,7 @@ background:
   }
   @media (max-width: 768px) {
     .block-transition-wrap{
-      flex-direction:column-reverse;
-      align-items:flex-start;
-      gap:24px;
+      padding-top:24px;
     }
     .results-action-group{
       flex-direction:column;
@@ -337,28 +332,6 @@ background:
     .results-action-group .transition-hint-down{
       justify-content:center;
     }
-  }
-  .transition-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    font-family:var(--mono);
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--grey);
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.1);
-    padding:8px 18px;
-    border-radius:100px;
-  }
-  .transition-pill::before{
-    content:'';
-    width:6px;height:6px;
-    border-radius:50%;
-    background:#FFF;
-    box-shadow:0 0 8px rgba(255,255,255,.8);
   }
   .transition-hint-down{
     font-family:var(--mono);
@@ -1189,9 +1162,6 @@ background:
       <div class="results-action-group">
         <a class="btn btn-solid" href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vi%20os%20resultados%20dos%20alunos%20e%20gostaria%20de%20iniciar%20minha%20transforma%C3%A7%C3%A3o." target="_blank" rel="noopener">Quero ter resultados assim →</a>
         <a class="transition-hint-down" href="#programa">Conheça os programas detalhados ↓</a>
-      </div>
-      <div class="transition-pill">
-        <span>Estrutura &amp; Metodologia</span>
       </div>
     </div>
   </div>
