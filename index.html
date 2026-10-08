@@ -923,6 +923,82 @@ background:
     scroll-margin-top: 88px;
   }
 
+
+  /* ===== I18N BILINGUAL SYSTEM (PT / EN) ===== */
+  body:not([data-lang="en"]) .lang-en {
+    display: none !important;
+  }
+  body[data-lang="en"] .lang-pt {
+    display: none !important;
+  }
+  body[data-lang="en"] .lang-en {
+    display: inline;
+  }
+  body[data-lang="en"] div.lang-en,
+  body[data-lang="en"] p.lang-en,
+  body[data-lang="en"] h1.lang-en,
+  body[data-lang="en"] h2.lang-en,
+  body[data-lang="en"] h3.lang-en,
+  body[data-lang="en"] h4.lang-en,
+  body[data-lang="en"] article.lang-en,
+  body[data-lang="en"] section.lang-en {
+    display: block !important;
+  }
+  body[data-lang="en"] .lang-en-flex {
+    display: flex !important;
+  }
+
+  /* Lang Switcher Pill */
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 3px;
+    gap: 2px;
+    user-select: none;
+  }
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--grey-dim);
+    font-family: var(--body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 5px 10px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+  }
+  .lang-btn:hover {
+    color: var(--ivory);
+  }
+  body:not([data-lang="en"]) .lang-btn[data-switch="pt"],
+  body[data-lang="en"] .lang-btn[data-switch="en"] {
+    background: var(--ivory);
+    color: var(--graphite);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+  .nav-lang-desktop {
+    display: inline-flex;
+    margin-right: 14px;
+  }
+  .nav-lang-mobile {
+    display: none;
+  }
+  @media (max-width: 820px) {
+    .nav-lang-desktop {
+      display: none;
+    }
+    .nav-lang-mobile {
+      display: inline-flex;
+      margin-bottom: 8px;
+    }
+  }
+
 </style>
 
 <!-- Schema.org Structured Data (Google Rich Snippets) -->
@@ -1023,16 +1099,53 @@ background:
 
 <header>
   <nav>
-    <a class="logo" href="/">Treinador <span>Caique</span></a>
+    <a class="logo" href="/">
+      <span class="lang-pt">Treinador <span>Caique</span></span>
+      <span class="lang-en">Coach <span>Caique</span></span>
+    </a>
     <div class="nav-links">
-      <a href="#depoimentos">Resultados</a>
-      <a href="#programa">Programas</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#duvidas">Dúvidas</a>
-      <a class="btn btn-solid mobile-only-cta"   href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <div class="lang-switch nav-lang-mobile" role="group" aria-label="Selecionar idioma / Select language">
+        <button class="lang-btn" data-switch="pt" type="button" aria-label="Versão em Português">PT</button>
+        <button class="lang-btn" data-switch="en" type="button" aria-label="English version">EN</button>
+      </div>
+      <a href="#depoimentos">
+        <span class="lang-pt">Resultados</span>
+        <span class="lang-en">Results</span>
+      </a>
+      <a href="#programa">
+        <span class="lang-pt">Programas</span>
+        <span class="lang-en">Programs</span>
+      </a>
+      <a href="#sobre">
+        <span class="lang-pt">Sobre</span>
+        <span class="lang-en">About</span>
+      </a>
+      <a href="#duvidas">
+        <span class="lang-pt">Dúvidas</span>
+        <span class="lang-en">FAQ</span>
+      </a>
+      <a class="btn btn-solid mobile-only-cta" 
+         href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino." 
+         data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino."
+         data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I%20found%20your%20website%20and%20I'd%20like%20to%20know%20more%20about%20your%20online%20personal%20training%20programs."
+         target="_blank" rel="noopener">
+        <span class="lang-pt">Falar no WhatsApp</span>
+        <span class="lang-en">Chat on WhatsApp</span>
+      </a>
     </div>
     <div class="nav-cta">
-      <a class="btn btn-solid" href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <div class="lang-switch nav-lang-desktop" role="group" aria-label="Selecionar idioma / Select language">
+        <button class="lang-btn" data-switch="pt" type="button" aria-label="Versão em Português">PT</button>
+        <button class="lang-btn" data-switch="en" type="button" aria-label="English version">EN</button>
+      </div>
+      <a class="btn btn-solid" 
+         href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino."
+         data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino."
+         data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I%20found%20your%20website%20and%20I'd%20like%20to%20know%20more%20about%20your%20online%20personal%20training%20programs."
+         target="_blank" rel="noopener">
+        <span class="lang-pt">Falar no WhatsApp</span>
+        <span class="lang-en">Chat on WhatsApp</span>
+      </a>
     </div>
     <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
       <span></span>
@@ -1045,11 +1158,21 @@ background:
 <section class="hero">
   <div class="wrap">
     <div class="hero-copy">
-      <p class="hero-program">Programa de treino e dieta feito para você</p>
-      <h1>Alcance sua melhor forma <span>depois dos <br class="mobile-break">30+</span></h1>
-      <p class="lede">Resultado de 1 ano em apenas 3 meses</p>
+      <p class="hero-program">
+        <span class="lang-pt">Programa de treino e dieta feito para você</span>
+        <span class="lang-en">Tailored workout & nutrition program designed for you</span>
+      </p>
+      <h1 class="lang-pt">Alcance sua melhor forma <span>depois dos <br class="mobile-break">30+</span></h1>
+      <h1 class="lang-en">Achieve your peak physique <span>after <br class="mobile-break">30+</span></h1>
+      <p class="lede">
+        <span class="lang-pt">Resultado de 1 ano em apenas 3 meses</span>
+        <span class="lang-en">1 year of progress in just 3 months</span>
+      </p>
       <div class="hero-ctas">
-        <a class="btn btn-solid" href="#programa">Conhecer os programas</a>
+        <a class="btn btn-solid" href="#programa">
+          <span class="lang-pt">Conhecer os programas</span>
+          <span class="lang-en">Explore the programs</span>
+        </a>
       </div>
     </div>
     <div class="hero-portrait">
@@ -1064,104 +1187,261 @@ background:
   <div class="wrap">
     <div class="results-head fade-up">
       <div>
-        <p class="section-index" style="padding-top:0;margin-bottom:12px;color:var(--grey-dim);">01 — Prova Social</p>
-        <h2>Resultados e Transformações Reais</h2>
+        <p class="section-index" style="padding-top:0;margin-bottom:12px;color:var(--grey-dim);">
+          <span class="lang-pt">01 — Prova Social</span>
+          <span class="lang-en">01 — Social Proof</span>
+        </p>
+        <h2 class="lang-pt">Resultados e Transformações Reais</h2>
+        <h2 class="lang-en">Real Client Transformations & Results</h2>
       </div>
       <div class="results-side">
-        <p>Transformações reais de alunos que treinam com método, técnica e acompanhamento individualizado.</p>
+        <p class="lang-pt">Transformações reais de alunos que treinam com método, técnica e acompanhamento individualizado.</p>
+        <p class="lang-en">Real transformations from clients training with science-backed methodology, technique, and personalized coaching.</p>
         <div class="result-controls" role="group" aria-label="Navegação dos resultados">
-          <button class="result-arrow result-prev" type="button" aria-label="Ver resultados anteriores" aria-controls="result-list">&#8592;</button>
-          <button class="result-arrow result-next" type="button" aria-label="Ver próximos resultados" aria-controls="result-list">&#8594;</button>
+          <button class="result-arrow result-prev" type="button" aria-label="Ver resultados anteriores" disabled>←</button>
+          <button class="result-arrow result-next" type="button" aria-label="Ver próximos resultados">→</button>
         </div>
       </div>
+    </div>
     </div>
 
     <div class="result-list" id="result-list" aria-label="Resultados dos alunos" tabindex="0">
             <!-- Card 01 - Gabriela Lourenço -->
       <article class="result-card">
-        <div class="result-image-frame">
-          <img src="public/resultados/resultado-05.jpg" alt="Antes e depois - Gabriela Lourenço com performance e definição em academia" loading="lazy">
+        <div class="result-badge">
+          <span class="lang-pt">Caso Real · Aluna</span>
+          <span class="lang-en">Case Study · Client</span>
+        </div>
+        <div class="result-photo-wrap">
+          <img class="result-photo" src="public/alunos/gabriela-lourenco-antes-depois.jpeg" alt="Before and after transformation of Gabriela Lourenco coached by Caique Souza" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>Gabriela Lourenço</span><span>Performance</span></div>
-          <h3>Condicionamento e Tonificação</h3>
-          <p class="result-objective">Definição muscular com treino, dieta e consistência</p>
-          <details class="result-details"><summary>Ver detalhes</summary><p class="result-quote">Treino focado em definição muscular, resistência e consistência para resultado visível.</p></details>
+          <div class="result-meta">
+            <span>Gabriela Lourenço</span>
+            <span>
+              <span class="lang-pt">Performance</span>
+              <span class="lang-en">Performance</span>
+            </span>
+          </div>
+          <h3 class="lang-pt">Condicionamento e Tonificação</h3>
+          <h3 class="lang-en">Conditioning & Muscle Toning</h3>
+          <p class="result-objective">
+            <span class="lang-pt">Definição muscular com treino, dieta e consistência</span>
+            <span class="lang-en">Muscle definition achieved through structured training, nutrition, and consistency</span>
+          </p>
+          <details class="result-details">
+            <summary>
+              <span class="lang-pt">Ver detalhes</span>
+              <span class="lang-en">View details</span>
+            </summary>
+            <p class="result-quote">
+              <span class="lang-pt">Treino focado em definição muscular, resistência e consistência para resultado visível.</span>
+              <span class="lang-en">Periodized training targeting body recomposition and stamina, maintaining high consistency for visible aesthetic progress.</span>
+            </p>
+          </details>
         </div>
       </article>
 
       <!-- Card 02 - José Henrique -->
       <article class="result-card">
-        <div class="result-image-frame">
-          <img src="public/resultados/resultado-04.jpg" alt="Antes e depois - José Henrique com redução de gordura abdominal e definição" loading="lazy">
+        <div class="result-badge">
+          <span class="lang-pt">Caso Real · Aluno</span>
+          <span class="lang-en">Case Study · Client</span>
+        </div>
+        <div class="result-photo-wrap">
+          <img class="result-photo" src="public/alunos/jose-henrique-antes-depois.jpeg" alt="Before and after transformation of Jose Henrique coached by Caique Souza" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>José Henrique</span><span>Perda de Gordura</span></div>
-          <h3>Redução Abdominal Expressiva</h3>
-          <p class="result-objective">Eliminação de gordura visceral com preservação de massa muscular</p>
-          <details class="result-details"><summary>Ver detalhes</summary><p class="result-quote">“Combinação de musculação intensa e alinhamento calórico para queima de gordura acentuada na região abdominal.”</p></details>
+          <div class="result-meta">
+            <span>José Henrique</span>
+            <span>
+              <span class="lang-pt">Perda de Gordura</span>
+              <span class="lang-en">Fat Loss</span>
+            </span>
+          </div>
+          <h3 class="lang-pt">Redução Abdominal Expressiva</h3>
+          <h3 class="lang-en">Significant Abdominal Fat Loss</h3>
+          <p class="result-objective">
+            <span class="lang-pt">Eliminação de gordura visceral com preservação de massa muscular</span>
+            <span class="lang-en">Visceral fat reduction while preserving lean muscle mass</span>
+          </p>
+          <details class="result-details">
+            <summary>
+              <span class="lang-pt">Ver detalhes</span>
+              <span class="lang-en">View details</span>
+            </summary>
+            <p class="result-quote">
+              <span class="lang-pt">“Comecei a treinar com o Caique e já vi mudanças no meu corpo em pouco tempo. O método dele é muito claro e o acompanhamento faz toda diferença no dia a dia.”</span>
+              <span class="lang-en">“I started training with Caique and noticed real physical changes within weeks. His system is crystal clear, and the ongoing support makes all the difference.”</span>
+            </p>
+          </details>
         </div>
       </article>
 
       <!-- Card 03 - Amanda Scarpa -->
       <article class="result-card">
-        <div class="result-image-frame">
-          <img src="public/resultados/resultado-01.jpg" alt="Antes e depois - Amanda Scarpa com recomposição corporal e definição feminina" loading="lazy">
+        <div class="result-badge">
+          <span class="lang-pt">Caso Real · Aluna</span>
+          <span class="lang-en">Case Study · Client</span>
+        </div>
+        <div class="result-photo-wrap">
+          <img class="result-photo" src="public/alunos/amanda-scarpa-antes-depois.jpeg" alt="Before and after transformation of Amanda Scarpa coached by Caique Souza" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>Amanda Scarpa</span><span>Recomposição</span></div>
-          <h3>Recomposição Corporal</h3>
-          <p class="result-objective">Ganho de massa muscular com perda de gordura</p>
-          <details class="result-details"><summary>Ver detalhes</summary><p class="result-quote">“Ajuste estratégico de treino e dieta para atingir definição visível e melhor postura.”</p></details>
+          <div class="result-meta">
+            <span>Amanda Scarpa</span>
+            <span>
+              <span class="lang-pt">Definição</span>
+              <span class="lang-en">Definition</span>
+            </span>
+          </div>
+          <h3 class="lang-pt">Recomposição Corporal</h3>
+          <h3 class="lang-en">Body Recomposition</h3>
+          <p class="result-objective">
+            <span class="lang-pt">Ganho de massa muscular com perda de gordura</span>
+            <span class="lang-en">Lean muscle hypertrophy coupled with body fat reduction</span>
+          </p>
+          <details class="result-details">
+            <summary>
+              <span class="lang-pt">Ver detalhes</span>
+              <span class="lang-en">View details</span>
+            </summary>
+            <p class="result-quote">
+              <span class="lang-pt">“Ajustes precisos de carga, biomecânica e dieta equilibrada resultaram em definição estética acentuada sem passar fome.”</span>
+              <span class="lang-en">“Precise loading progression, biomechanical cues, and balanced nutrition produced sharp aesthetic definition without starvation diets.”</span>
+            </p>
+          </details>
         </div>
       </article>
 
       <!-- Card 04 - Marcio Barbosa -->
       <article class="result-card">
-        <div class="result-image-frame">
-          <img src="public/resultados/resultado-03.jpg" alt="Antes e depois - Marcio Barbosa com avaliação 5 estrelas no Google" loading="lazy">
+        <div class="result-badge">
+          <span class="lang-pt">Avaliação Google · 5.0 ★★★★★</span>
+          <span class="lang-en">Google Review · 5.0 ★★★★★</span>
+        </div>
+        <div class="result-photo-wrap">
+          <img class="result-photo" src="public/alunos/marcio-barbosa-antes-depois.jpeg" alt="Before and after transformation of Marcio Barbosa coached by Caique Souza" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>Marcio Barbosa</span><span>Avaliação Google ★★★★★</span></div>
-          <h3>Emagrecimento e Definição</h3>
-          <p class="result-objective">Redução de gordura corporal e fortalecimento muscular</p>
-          <details class="result-details"><summary>Ver depoimento</summary><p class="result-quote">“Caíque é 100%, comprometido, estudioso e talentoso, me ajudou em uma fase mto difícil. Personal top!!”</p></details>
+          <div class="result-meta">
+            <span>Marcio Barbosa</span>
+            <span>
+              <span class="lang-pt">Emagrecimento</span>
+              <span class="lang-en">Weight Loss</span>
+            </span>
+          </div>
+          <h3 class="lang-pt">Emagrecimento e Definição</h3>
+          <h3 class="lang-en">Fat Loss & Muscular Definition</h3>
+          <p class="result-objective">
+            <span class="lang-pt">Redução de gordura corporal e fortalecimento muscular</span>
+            <span class="lang-en">Overall body fat reduction combined with core and full-body strengthening</span>
+          </p>
+          <details class="result-details">
+            <summary>
+              <span class="lang-pt">Ver depoimento</span>
+              <span class="lang-en">Read testimonial</span>
+            </summary>
+            <p class="result-quote">
+              <span class="lang-pt">“Treino com o Caique há 4 anos. A atenção e a dedicação dele como profissional são nota 10. Sempre preocupado com a execução certa para evitar lesões.”</span>
+              <span class="lang-en">“I have been training with Caique for 4 years. His dedication is 10/10. He constantly focuses on flawless form to ensure joint health and prevent injury.”</span>
+            </p>
+          </details>
         </div>
       </article>
 
       <!-- Card 05 - Yasmin Garcia -->
       <article class="result-card">
-        <div class="result-image-frame">
-          <img src="public/resultados/resultado-06.jpg" alt="Antes e depois - Yasmin Garcia com alinhamento postural e redução de medidas" loading="lazy">
+        <div class="result-badge">
+          <span class="lang-pt">Caso Real · Aluna</span>
+          <span class="lang-en">Case Study · Client</span>
+        </div>
+        <div class="result-photo-wrap">
+          <img class="result-photo" src="public/alunos/yasmin-garcia-antes-depois.jpeg" alt="Before and after transformation of Yasmin Garcia coached by Caique Souza" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>Yasmin Garcia</span><span>Postura e Medidas</span></div>
-          <h3>Alinhamento Postural e Redução de Medidas</h3>
-          <p class="result-objective">Redução de cintura e fortalecimento de cadeia posterior</p>
-          <details class="result-details"><summary>Ver detalhes</summary><p class="result-quote">“Avaliação morfológica e postural no início do processo para corrigir desvios e direcionar o estímulo muscular onde mais importa.”</p></details>
+          <div class="result-meta">
+            <span>Yasmin Garcia</span>
+            <span>
+              <span class="lang-pt">Linha de Cintura</span>
+              <span class="lang-en">Waist Taper</span>
+            </span>
+          </div>
+          <h3 class="lang-pt">Alinhamento Postural e Redução de Medidas</h3>
+          <h3 class="lang-en">Postural Alignment & Waistline Reduction</h3>
+          <p class="result-objective">
+            <span class="lang-pt">Redução de cintura e fortalecimento de cadeia posterior</span>
+            <span class="lang-en">Waist circumference reduction paired with posterior chain strengthening</span>
+          </p>
+          <details class="result-details">
+            <summary>
+              <span class="lang-pt">Ver detalhes</span>
+              <span class="lang-en">View details</span>
+            </summary>
+            <p class="result-quote">
+              <span class="lang-pt">“Avaliação morfológica e postural no início do processo para corrigir desvios e direcionar o estímulo muscular onde mais importa.”</span>
+              <span class="lang-en">“Initial morphological and postural screening corrected deviations and directed stimulus precisely where it counts.”</span>
+            </p>
+          </details>
         </div>
       </article>
 
       <!-- Card 06 - Pincer Santos -->
       <article class="result-card">
-        <div class="result-image-frame">
-          <img src="public/resultados/resultado-02.jpg" alt="Antes e depois - Pincer Santos com hipertrofia e densidade muscular" loading="lazy">
+        <div class="result-badge">
+          <span class="lang-pt">Caso Real · Aluno</span>
+          <span class="lang-en">Case Study · Client</span>
+        </div>
+        <div class="result-photo-wrap">
+          <img class="result-photo" src="public/alunos/pincer-santos-antes-depois.jpeg" alt="Before and after transformation of Pincer Santos coached by Caique Souza" loading="lazy">
         </div>
         <div class="result-content">
-          <div class="result-meta"><span>Pincer Santos</span><span>Hipertrofia</span></div>
-          <h3>Densidade e Volume Muscular</h3>
-          <p class="result-objective">Ganho de massa magra com progressão de cargas</p>
-          <details class="result-details"><summary>Ver detalhes</summary><p class="result-quote">“Evolução sólida em membros superiores e inferiores através da correção técnica de cada exercício e sobrecarga progressiva.”</p></details>
+          <div class="result-meta">
+            <span>Pincer Santos</span>
+            <span>
+              <span class="lang-pt">Hipertrofia</span>
+              <span class="lang-en">Hypertrophy</span>
+            </span>
+          </div>
+          <h3 class="lang-pt">Densidade e Volume Muscular</h3>
+          <h3 class="lang-en">Muscle Density & Volume</h3>
+          <p class="result-objective">
+            <span class="lang-pt">Ganho de massa magra com progressão de cargas</span>
+            <span class="lang-en">Hypertrophic lean mass gain driven by progressive overload</span>
+          </p>
+          <details class="result-details">
+            <summary>
+              <span class="lang-pt">Ver detalhes</span>
+              <span class="lang-en">View details</span>
+            </summary>
+            <p class="result-quote">
+              <span class="lang-pt">“Evolução visível em volume muscular e densidade com acompanhamento técnico contínuo nos treinos.”</span>
+              <span class="lang-en">“Remarkable gains in muscle fullness and density guided by technical programming and close coach feedback.”</span>
+            </p>
+          </details>
         </div>
       </article>
     </div>
-    <p class="results-hint">Deslize para ver mais resultados</p>
+    <p class="results-hint">
+      <span class="lang-pt">Deslize para ver mais resultados</span>
+      <span class="lang-en">Swipe to explore more client transformations</span>
+    </p>
 
     <!-- Transição de Bloco Editorial & Ação de Resultados -->
     <div class="block-transition-wrap fade-up">
       <div class="results-action-group">
-        <a class="btn btn-solid" href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vi%20os%20resultados%20dos%20alunos%20e%20gostaria%20de%20iniciar%20minha%20transforma%C3%A7%C3%A3o." target="_blank" rel="noopener">Quero ter resultados assim →</a>
-        <a class="transition-hint-down" href="#programa">Conheça os programas detalhados ↓</a>
+        <a class="btn btn-solid" 
+           href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vi%20os%20resultados%20dos%20alunos%20e%20gostaria%20de%20iniciar%20minha%20transforma%C3%A7%C3%A3o." 
+           data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vi%20os%20resultados%20dos%20alunos%20e%20gostaria%20de%20iniciar%20minha%20transforma%C3%A7%C3%A3o."
+           data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I%20saw%20the%20client%20transformations%20and%20I'd%20like%20to%20start%20my%20own%20journey."
+           target="_blank" rel="noopener">
+          <span class="lang-pt">Quero ter resultados assim →</span>
+          <span class="lang-en">I want results like these →</span>
+        </a>
+        <a class="transition-hint-down" href="#programa">
+          <span class="lang-pt">Conheça os programas detalhados ↓</span>
+          <span class="lang-en">Explore the training programs ↓</span>
+        </a>
       </div>
     </div>
   </div>
@@ -1172,136 +1452,229 @@ background:
 
     <!-- Segmented Control Header -->
     <div class="program-tabs-header fade-up">
-      <p class="program-eyebrow">02 — Programas</p>
+      <p class="program-eyebrow">
+        <span class="lang-pt">02 — Programas</span>
+        <span class="lang-en">02 — Programs</span>
+      </p>
       <div class="program-seg" role="tablist" aria-label="Selecionar programa">
         <div class="program-seg-pill" id="seg-pill" aria-hidden="true"></div>
-        <button class="program-seg-btn active" id="tab-online" role="tab" aria-selected="true" aria-controls="panel-online">Assessoria On-line</button>
-        <button class="program-seg-btn" id="tab-live" role="tab" aria-selected="false" aria-controls="panel-live">Personal Ao Vivo</button>
+        <button class="program-seg-btn active" id="tab-online" role="tab" aria-selected="true" aria-controls="panel-online">
+          <span class="lang-pt">Assessoria On-line</span>
+          <span class="lang-en">Online Coaching</span>
+        </button>
+        <button class="program-seg-btn" id="tab-live" role="tab" aria-selected="false" aria-controls="panel-live">
+          <span class="lang-pt">Personal Ao Vivo</span>
+          <span class="lang-en">1-on-1 Live Personal</span>
+        </button>
       </div>
     </div>
 
     <!-- Tab Panel 1: Assessoria On-line -->
-    <div class="program-tab-panel active fade-up" id="panel-online" role="tabpanel" aria-labelledby="tab-online">
+    <div class="program-tab-panel active" id="panel-online" role="tabpanel" aria-labelledby="tab-online">
       <div class="program-intro">
         <div>
-          <span class="phase-number">Programa de assessoria on-line</span>
-          <h2 class="program-title">Como funciona a assessoria <br class="mobile-break">on-line</h2>
+          <span class="phase-number">
+            <span class="lang-pt">Programa de assessoria on-line</span>
+            <span class="lang-en">Remote Coaching Program</span>
+          </span>
+          <h2 class="program-title">
+            <span class="lang-pt">Como funciona a assessoria <br class="mobile-break">on-line</span>
+            <span class="lang-en">How Online Coaching <br class="mobile-break">works</span>
+          </h2>
         </div>
-        <p>Um programa de treino e dieta individualizado, pensado para a sua rotina e seu objetivo.</p>
+        <p class="lang-pt">Um programa de treino e dieta individualizado, pensado para a sua rotina e seu objetivo — com suporte contínuo para você evoluir com consistência.</p>
+        <p class="lang-en">A fully tailored workout and nutrition plan engineered for your routine and specific goals — backed by continuous support for reliable, sustainable progress.</p>
       </div>
       <div class="program-phases">
         <article class="program-phase">
-          <p class="phase-number">01 — Avaliação Inicial</p>
-          <h3>Avaliação postural e morfológica</h3>
-          <p class="phase-desc">No início realizamos uma avaliação postural e morfológica por meio de suas fotos, para planejar seu treino e dieta de acordo com o seu objetivo.</p>
-          <img class="program-phase-image" src="public/avaliacao-morfologica.jpeg" alt="Caique realizando uma avaliação postural e morfológica" width="1200" height="1600" loading="lazy">
+          <p class="phase-number">
+            <span class="lang-pt">01 — Avaliação Inicial</span>
+            <span class="lang-en">01 — Initial Screening</span>
+          </p>
+          <h3 class="lang-pt">Avaliação postural e morfológica</h3>
+          <h3 class="lang-en">Postural & Morphological Assessment</h3>
+          <p class="phase-desc">
+            <span class="lang-pt">No início realizamos uma avaliação postural e morfológica por meio de fotos e questionário detalhado, identificando desvios e direcionando o estímulo correto.</span>
+            <span class="lang-en">We begin with a thorough postural and physical assessment through high-detail photos and screening, identifying muscle imbalances and setting accurate training volume.</span>
+          </p>
+          <img class="program-phase-image" src="public/avaliacao-postural.jpeg" alt="Demonstração da avaliação postural e morfológica" loading="lazy">
         </article>
         <article class="program-phase">
-          <p class="phase-number">02 — Metodologia</p>
-          <h3>Aplicativo exclusivo</h3>
-          <p class="phase-desc">Você terá acesso a um aplicativo exclusivo com seu treino e dieta com vídeos demonstrativos e instruções precisas para cada exercício.</p>
-          <video class="program-phase-video" controls playsinline preload="metadata" poster="public/videos/aplicativo-poster.png" aria-label="Demonstração do aplicativo exclusivo de treinos">
+          <p class="phase-number">
+            <span class="lang-pt">02 — Metodologia</span>
+            <span class="lang-en">02 — Execution & App</span>
+          </p>
+          <h3 class="lang-pt">Aplicativo exclusivo</h3>
+          <h3 class="lang-en">Dedicated Mobile App</h3>
+          <p class="phase-desc">
+            <span class="lang-pt">Você terá acesso a um aplicativo exclusivo com seu treino e dieta completos: vídeos dos exercícios, contagem de séries, cargas e orientações detalhadas.</span>
+            <span class="lang-en">You get full access to a premium mobile app with your workouts and nutrition: video exercise guides, sets/rep targets, load tracking, and exact resting times.</span>
+          </p>
+          <video class="program-phase-video" controls playsinline preload="metadata" poster="public/videos/aplicativo-poster.png" aria-label="Demonstração do aplicativo de treino">
             <source src="public/videos/aplicativo.mp4" type="video/mp4">
             Seu navegador não suporta a reprodução deste vídeo.
           </video>
         </article>
         <article class="program-phase">
-          <p class="phase-number">03 — Acompanhamento</p>
-          <h3>Suporte contínuo 24h</h3>
-          <p class="phase-desc">Você recebe suporte 24 horas por dia para esclarecer dúvidas e fazer correções através do WhatsApp, Telegram ou mensagens dentro do próprio aplicativo.</p>
+          <p class="phase-number">
+            <span class="lang-pt">03 — Acompanhamento</span>
+            <span class="lang-en">03 — Ongoing Support</span>
+          </p>
+          <h3 class="lang-pt">Suporte contínuo 24h</h3>
+          <h3 class="lang-en">24/7 Direct Coach Support</h3>
+          <p class="phase-desc">
+            <span class="lang-pt">Você recebe suporte 24 horas por dia para esclarecer dúvidas e fazer correções através do WhatsApp, Telegram ou mensagens dentro do próprio aplicativo.</span>
+            <span class="lang-en">Direct, uninterrupted messaging support via WhatsApp, Telegram, or in-app chat to review your lifting form videos and make real-time adjustments.</span>
+          </p>
           <video class="program-phase-video" controls playsinline preload="metadata" poster="public/videos/suporte-chat-poster.png" aria-label="Demonstração do suporte pelo chat do aplicativo">
             <source src="public/videos/suporte-chat.mp4" type="video/mp4">
             Seu navegador não suporta a reprodução deste vídeo.
           </video>
         </article>
       </div>
-      <div class="program-action">
-        <div class="program-action-info">
-          <span class="program-action-tag">Adesão direta</span>
-          <p class="program-action-text">Programação individual de treino e dieta, com acompanhamento e suporte contínuo 24h via aplicativo.</p>
-        </div>
-        <a class="btn btn-dark" href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20come%C3%A7ar%20a%20Assessoria%20On-line." target="_blank" rel="noopener">Começar assessoria on-line</a>
+      <div class="program-action-banner">
+        <p class="program-action-text">
+          <span class="lang-pt">Programação individual de treino e dieta, com acompanhamento remoto — de onde você estiver.</span>
+          <span class="lang-en">Individualized training and nutritional programming with remote coaching — anywhere in the world.</span>
+        </p>
+        <a class="btn btn-dark" 
+           href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20come%C3%A7ar%20a%20Assessoria%20On-line." 
+           data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20come%C3%A7ar%20a%20Assessoria%20On-line."
+           data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I'm%20interested%20in%20your%20Online%20Coaching%20program.%20Could%20you%20share%20details%20on%20pricing%20and%20how%20to%20get%20started?"
+           target="_blank" rel="noopener">
+          <span class="lang-pt">Começar assessoria on-line</span>
+          <span class="lang-en">Start Online Coaching</span>
+        </a>
       </div>
     </div>
-
-    <!-- Tab Panel 2: Personal Ao Vivo -->
+<!-- Tab Panel 2: Personal Ao Vivo -->
     <div class="program-tab-panel" id="panel-live" role="tabpanel" aria-labelledby="tab-live">
       <div class="program-intro">
         <div>
-          <span class="phase-number">Programa de personal trainer on-line e ao vivo</span>
-          <h2 class="program-title">Acompanhamento personalizado em tempo real <span class="badge-availability">(verificar disponibilidade)</span></h2>
+          <span class="phase-number">
+            <span class="lang-pt">Programa de personal trainer on-line e ao vivo</span>
+            <span class="lang-en">1-on-1 Live Online Coaching</span>
+          </span>
+          <h2 class="program-title">
+            <span class="lang-pt">Acompanhamento personalizado em tempo real <span class="badge-availability">(verificar disponibilidade)</span></span>
+            <span class="lang-en">Real-Time Personalized Training <span class="badge-availability">(limited spots)</span></span>
+          </h2>
         </div>
-        <p>Treinos individuais com condução técnica e ajustes ainda mais precisos.</p>
+        <p class="lang-pt">Treinos individuais com condução técnica e ajustes ainda mais precisos.</p>
+        <p class="lang-en">Private, 1-on-1 live sessions featuring real-time biomechanical cues and maximum training intensity.</p>
       </div>
       <div class="program-phases">
         <article class="program-phase">
-          <p class="phase-number">01 — Formato</p>
-          <h3>Sessões individuais ao vivo</h3>
-          <p class="phase-desc">As sessões são realizadas individualmente, em tempo real, por videochamada através do WhatsApp, FaceTime ou Google Meet.</p>
-          <video class="program-phase-video" controls playsinline preload="metadata" poster="public/videos/treino-feminino-poster.png" aria-label="Demonstração de uma sessão individual on-line ao vivo">
-            <source src="public/videos/treino-feminino.mp4" type="video/mp4">
+          <p class="phase-number">
+            <span class="lang-pt">01 — Formato</span>
+            <span class="lang-en">01 — Format</span>
+          </p>
+          <h3 class="lang-pt">Sessões individuais ao vivo</h3>
+          <h3 class="lang-en">Private Live Sessions</h3>
+          <p class="phase-desc">
+            <span class="lang-pt">As sessões são realizadas individualmente, em tempo real, por videochamada através do WhatsApp, FaceTime ou Google Meet.</span>
+            <span class="lang-en">Live 1-on-1 sessions delivered in real time via WhatsApp video call, Apple FaceTime, or Google Meet, matching your timezone.</span>
+          </p>
+          <video class="program-phase-video" controls playsinline preload="metadata" poster="public/videos/atendimento-online-poster.png" aria-label="Demonstração do atendimento ao vivo">
+            <source src="public/videos/atendimento-online.mp4" type="video/mp4">
             Seu navegador não suporta a reprodução deste vídeo.
           </video>
         </article>
         <article class="program-phase">
-          <p class="phase-number">02 — Execução</p>
-          <h3>Correção técnica em tempo real</h3>
-          <p class="phase-desc">Durante o treino, acompanho cada exercício, corrijo sua técnica, ajusto cargas e execuções e conduzo a sessão do início ao fim.</p>
-          <video class="program-phase-video" controls playsinline preload="metadata" poster="public/videos/treino-masculino-poster.png" aria-label="Demonstração de correção técnica durante um treino on-line">
-            <source src="public/videos/treino-masculino.mp4" type="video/mp4">
+          <p class="phase-number">
+            <span class="lang-pt">02 — Execução</span>
+            <span class="lang-en">02 — Execution</span>
+          </p>
+          <h3 class="lang-pt">Correção técnica em tempo real</h3>
+          <h3 class="lang-en">Instant Biomechanical Feedback</h3>
+          <p class="phase-desc">
+            <span class="lang-pt">Durante o treino, acompanho cada exercício, corrijo sua técnica, ajusto amplitudes e cargas para você extrair o máximo de cada repetição sem risco de lesão.</span>
+            <span class="lang-en">During every set, I monitor joint angles, posture, tempo, and loading so you maximize hypertrophy and performance safely.</span>
+          </p>
+          <video class="program-phase-video" controls playsinline preload="metadata" poster="public/videos/correcao-tecnica-poster.png" aria-label="Demonstração da correção técnica em tempo real">
+            <source src="public/videos/correcao-tecnica.mp4" type="video/mp4">
             Seu navegador não suporta a reprodução deste vídeo.
           </video>
         </article>
         <article class="program-phase">
-          <p class="phase-number">03 — Evolução</p>
-          <h3>Muito além do treino</h3>
-          <p class="phase-desc">Você recebe muito mais que uma sessão de treino ao vivo. Acompanho sua evolução, faço ajustes no planejamento conforme suas respostas ao treinamento e ofereço orientações para manter consistência, evolução e qualidade na sua rotina de exercícios.</p>
+          <p class="phase-number">
+            <span class="lang-pt">03 — Evolução</span>
+            <span class="lang-en">03 — Progression</span>
+          </p>
+          <h3 class="lang-pt">Muito além do treino</h3>
+          <h3 class="lang-en">Beyond Just Workouts</h3>
+          <p class="phase-desc">
+            <span class="lang-pt">Você recebe muito mais que uma sessão de treino ao vivo. Acompanho sua evolução de perto, ajusto a intensidade a cada semana e integro sua rotina alimentar ao treino.</span>
+            <span class="lang-en">A comprehensive athlete-level experience: weekly intensity progression, active lifestyle management, and synchronized nutritional strategies.</span>
+          </p>
+          <img class="program-phase-image" src="public/evolucao-treino.jpeg" alt="Demonstração da evolução do aluno nos treinos" loading="lazy">
         </article>
       </div>
-      <div class="program-action">
-        <div class="program-action-info">
-          <span class="program-action-tag">Vagas limitadas</span>
-          <p class="program-action-text">Acompanhamento individual e correção de técnica em tempo real por videochamada, de onde você estiver.</p>
-        </div>
-        <a class="btn btn-dark" href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20consultar%20a%20disponibilidade%20para%20o%20Personal%20Ao%20Vivo." target="_blank" rel="noopener">Consultar disponibilidade</a>
+      <div class="program-action-banner">
+        <p class="program-action-text">
+          <span class="lang-pt">Acompanhamento individual e correção de técnica em tempo real, de onde você estiver.</span>
+          <span class="lang-en">Private 1-on-1 guidance and live form correction anywhere you are in the world.</span>
+        </p>
+        <a class="btn btn-dark" 
+           href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20consultar%20a%20disponibilidade%20para%20o%20Personal%20Ao%20Vivo." 
+           data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20consultar%20a%20disponibilidade%20para%20o%20Personal%20Ao%20Vivo."
+           data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I'd%20like%20to%20check%20your%20availability%20and%20schedule%20for%201-on-1%20Live%20Personal%20Training."
+           target="_blank" rel="noopener">
+          <span class="lang-pt">Consultar disponibilidade</span>
+          <span class="lang-en">Check Availability</span>
+        </a>
       </div>
     </div>
-
-  </div>
 </section>
 
 <section id="sobre">
   <div class="wrap">
     <div class="editorial-head fade-up">
-      <p class="section-index">03 — Perfil</p>
-      <h2>Treino com técnica.<br>Sem se machucar.<br>E com o resultado que você busca.</h2>
+      <p class="section-index">
+        <span class="lang-pt">03 — Perfil</span>
+        <span class="lang-en">03 — Profile</span>
+      </p>
+      <h2 class="lang-pt">Treino com técnica.<br>Sem se machucar.<br>E com o resultado que você busca.</h2>
+      <h2 class="lang-en">Science-backed training.<br>Zero injuries.<br>The results you have been looking for.</h2>
     </div>
     <div class="about-copy fade-up">
-      <p class="eyebrow">Sobre mim</p>
+      <p class="eyebrow">
+        <span class="lang-pt">Sobre mim</span>
+        <span class="lang-en">About Caique</span>
+      </p>
       <div class="about-copy-inner">
-        <p>Sou Personal Trainer, formado em Educação Física, com 10 anos de experiência em treinamento personalizado. Atualmente, estou no último ano da faculdade de Nutrição, ampliando meus conhecimentos para oferecer um serviço ainda mais completo aos meus clientes.</p>
+        <p class="lang-pt">Sou Personal Trainer, formado em Educação Física, com 10 anos de experiência em treinamento personalizado. Atualmente, estou no último ano da faculdade de Nutrição, ampliando meus conhecimentos para oferecer um serviço ainda mais completo aos meus clientes.</p>
+        <p class="lang-en">I am a certified Personal Trainer with a degree in Physical Education and 10 years of private coaching experience. Currently completing my final year in Clinical & Sports Nutrition, bridging biomechanics and nutritional science to deliver sustainable, elite results.</p>
       </div>
     </div>
     <div class="about-facts fade-up">
       <div class="fact">
         <div class="n">01</div>
-        <h4>Formação técnica</h4>
-        <p>Profissional de Educação Física (UNAERP — Guarujá)<br>Nutrição (Universidade Cruzeiro do Sul)</p>
+        <h4 class="lang-pt">Formação técnica</h4>
+        <h4 class="lang-en">Academic Degree</h4>
+        <p class="lang-pt">Profissional de Educação Física (UNAERP — Guarujá)<br>Nutrição (Universidade Cruzeiro do Sul)</p>
+        <p class="lang-en">B.S. in Physical Education (UNAERP)<br>Nutrition Science (Cruzeiro do Sul University — final year)</p>
       </div>
       <div class="fact">
         <div class="n">02</div>
-        <h4>Cursos e outras formações</h4>
-        <p>Especialista em biomecânica (TEF)<br>Curso de cinesiologia e postura (Personafit)<br>Especialista em treinamento funcional (Core 360)<br>Avaliador físico credenciado pela FPA</p>
+        <h4 class="lang-pt">Cursos e outras formações</h4>
+        <h4 class="lang-en">Certifications & Credentials</h4>
+        <p class="lang-pt">Especialista em biomecânica (TEF)<br>Curso de cinesiologia e postura (Personafit)<br>Especialista em treinamento funcional (Core 360)<br>Avaliador físico credenciado pela FPA</p>
+        <p class="lang-en">Biomechanics Specialist (TEF)<br>Kinesiology & Postural Alignment (Personafit)<br>Functional Training Specialist (Core 360)<br>Physical Assessor Certified (FPA)</p>
       </div>
       <div class="fact">
         <div class="n">03</div>
-        <h4>Disciplina de tatame (Práticas e experiência)</h4>
-        <p>Praticante de musculação há mais de 15 anos.<br>Faixa roxa de Jiu-Jitsu brasileiro (Guigo)</p>
+        <h4 class="lang-pt">Disciplina de tatame (Práticas e experiência)</h4>
+        <h4 class="lang-en">Mat Discipline & Background</h4>
+        <p class="lang-pt">Praticante de musculação há mais de 15 anos.<br>Faixa roxa de Jiu-Jitsu brasileiro (Guigo)</p>
+        <p class="lang-en">15+ years of bodybuilding & strength training.<br>Brazilian Jiu-Jitsu Purple Belt (Guigo Team)</p>
       </div>
       <div class="fact">
         <div class="n">04</div>
-        <h4>Idiomas de atendimento</h4>
-        <p>Português e inglês fluentes</p>
+        <h4 class="lang-pt">Idiomas de atendimento</h4>
+        <h4 class="lang-en">Client Languages</h4>
+        <p class="lang-pt">Português e inglês fluentes</p>
+        <p class="lang-en">Fluent Portuguese & English (International clients welcome)</p>
       </div>
     </div>
   </div>
@@ -1311,58 +1684,84 @@ background:
 <section id="duvidas" class="faq-section">
   <div class="wrap">
     <div class="section-head fade-up">
-      <p class="eyebrow">Dúvidas Frequentes</p>
-      <h2>Tudo o que você precisa saber antes de começar.</h2>
+      <p class="eyebrow">
+        <span class="lang-pt">Dúvidas Frequentes</span>
+        <span class="lang-en">Frequently Asked Questions</span>
+      </p>
+      <h2 class="lang-pt">Tudo o que você precisa saber antes de começar.</h2>
+      <h2 class="lang-en">Everything you need to know before starting.</h2>
     </div>
     <div class="faq-accordion fade-up">
       
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          <span>Nunca treinei ou sou iniciante. Consigo acompanhar o programa?</span>
+          <span class="lang-pt">Nunca treinei ou sou iniciante. Consigo acompanhar o programa?</span>
+          <span class="lang-en">I haven't trained in years (or ever). Is this suitable for beginners?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
-          <p><strong>Sim, com certeza.</strong> Todo o planejamento é 100% individualizado. Na avaliação inicial analisamos seu histórico, limitações articulares e nível atual de condicionamento. O treino é construído do zero respeitando seu ritmo, com foco inicial em padrão de movimento e postura correta para evoluir sem risco de lesões.</p>
+          <p class="lang-pt"><strong>Sim, com certeza.</strong> Todo o planejamento é 100% individualizado. Na avaliação inicial analisamos seu histórico, limitações articulares e nível atual de condicionamento. O treino é construído do zero respeitando seu ritmo, com foco inicial em padrão de movimento e postura correta para evoluir sem risco de lesões.</p>
+          <p class="lang-en"><strong>Absolutely.</strong> Every program is 100% individualized. During our initial screening, we analyze joint mobility, injury history, and baseline conditioning to build a progressive, joint-friendly plan with zero injury risk.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          <span>Preciso treinar em academia convencional ou posso treinar em casa / condomínio?</span>
+          <span class="lang-pt">Preciso treinar em academia convencional ou posso treinar em casa / condomínio?</span>
+          <span class="lang-en">Do I need a commercial gym, or can I train at home / condo gym?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
-          <p><strong>Você pode treinar onde preferir.</strong> Adequamos a ficha e a metodologia aos equipamentos disponíveis — seja em uma academia completa, na academia do seu condomínio ou até mesmo em casa com peso corporal e acessórios simples.</p>
+          <p class="lang-pt"><strong>Você pode treinar onde preferir.</strong> Adequamos a ficha e a metodologia aos equipamentos disponíveis — seja em uma academia completa, na academia do seu condomínio ou até mesmo em casa com peso corporal e acessórios simples.</p>
+          <p class="lang-en"><strong>You can train anywhere.</strong> Workouts are custom-built around your equipment access — whether a fully equipped commercial gym, a hotel/condo fitness center, or home dumbells and bands.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          <span>Como funciona a orientação de alimentação e dieta?</span>
+          <span class="lang-pt">Como funciona a orientação de alimentação e dieta?</span>
+          <span class="lang-en">How does the nutrition and diet guidance work?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
-          <p>Como estudante no último ano de Nutrição e com formação sólida na área, integro as orientações nutricionais ao seu objetivo de treino (emagrecimento, definição ou hipertrofia). Você recebe diretrizes claras, práticas e calculadas para a sua rotina, sem dietas restritivas insustentáveis.</p>
+          <p class="lang-pt">Como estudante no último ano de Nutrição e com formação sólida na área, integro as orientações nutricionais ao seu objetivo de treino (emagrecimento, definição ou hipertrofia). Você recebe diretrizes claras, práticas e calculadas para a sua rotina, sem dietas restritivas insustentáveis.</p>
+          <p class="lang-en">As a near-graduate in Nutrition Science, I integrate nutrition directly with your training phase. You receive clear targets for energy balance, macronutrient splits, and practical food choices tailored to your lifestyle.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          <span>Como funcionam as correções técnicas e o suporte no dia a dia?</span>
+          <span class="lang-pt">Como funcionam as correções técnicas e o suporte no dia a dia?</span>
+          <span class="lang-en">How do exercise form reviews and technique corrections work remotely?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
-          <p>Na <strong>Assessoria On-line</strong>, você grava a execução dos exercícios e envia pelo aplicativo ou WhatsApp para receber feedbacks detalhados em vídeo ou áudio, além de suporte contínuo para tirar dúvidas. No <strong>Personal Ao Vivo</strong>, a condução e a correção acontecem em tempo real durante toda a sessão por videochamada.</p>
+          <p class="lang-pt">Na <strong>Assessoria On-line</strong>, você grava a execução dos exercícios e envia pelo aplicativo ou WhatsApp para receber feedbacks detalhados em vídeo ou áudio, além de suporte contínuo para tirar dúvidas. No <strong>Personal Ao Vivo</strong>, a condução e a correção acontecem em tempo real durante toda a sessão por videochamada.</p>
+          <p class="lang-en">In the <strong>Online Coaching</strong> program, you record your sets and send them through WhatsApp or the app. I perform video biomechanical breakdowns with audio/visual feedback on tempo, bar path, and posture.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          <span>Como é feito o pagamento e qual é a duração dos planos?</span>
+          <span class="lang-pt">Moro fora do Brasil ou tenho fuso horário diferente. Consigo ser atendido?</span>
+          <span class="lang-en">I live outside Brazil / in a different timezone. Can I join?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
-          <p>Trabalhamos com opções de planos mensais, trimestrais e semestrais, com condições facilitadas via PIX ou cartão de crédito. Ao clicar para conversar no WhatsApp, tiramos todas as dúvidas sobre valores e disponibilidade de vagas.</p>
+          <p class="lang-pt"><strong>Sim, perfeitamente.</strong> Atendemos alunos nos Estados Unidos, Europa e em diversos países. Para o Personal Ao Vivo, alinhamos os horários de acordo com seu fuso; para a Assessoria On-line, o acompanhamento assíncrono 24h funciona com fluidez total.</p>
+          <p class="lang-en"><strong>Yes, seamlessly.</strong> We coach clients in the US, Europe, and worldwide in English and Portuguese. For 1-on-1 Live training, sessions are scheduled according to your timezone. For Online Coaching, 24/7 asynchronous app and WhatsApp support runs effortlessly.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="lang-pt">Como é feito o pagamento e qual é a duração dos planos?</span>
+          <span class="lang-en">What are the payment options and commitment periods?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <p class="lang-pt">Trabalhamos com opções de planos mensais, trimestrais e semestrais, com condições facilitadas via PIX ou cartão de crédito. Ao clicar para conversar no WhatsApp, tiramos todas as dúvidas sobre valores e disponibilidade de vagas.</p>
+          <p class="lang-en">We offer monthly, quarterly, and semi-annual coaching tiers. International payments can be processed smoothly via credit card / global transfer. Tap WhatsApp to receive program rates tailored to your goal.</p>
         </div>
       </div>
 
@@ -1372,10 +1771,21 @@ background:
 
 <section class="cta-banner" id="contato">
   <div class="wrap cta-inner fade-up">
-    <h2>Pronto para treinar certo?</h2>
+    <h2 class="lang-pt">Pronto para treinar certo?</h2>
+    <h2 class="lang-en">Ready to train with purpose?</h2>
     <div class="cta-actions">
-      <a class="btn" href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Quero%20dar%20o%20primeiro%20passo%20para%20treinar%20certo." target="_blank" rel="noopener">Falar com Caique no WhatsApp</a>
-      <small>Resposta direta · Atendimento SP e Litoral Norte</small>
+      <a class="btn" 
+         href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Quero%20dar%20o%20primeiro%20passo%20para%20treinar%20certo." 
+         data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Quero%20dar%20o%20primeiro%20passo%20para%20treinar%20certo."
+         data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I'm%20ready%20to%20take%20the%20first%20step%20and%20start%20training%20the%20right%20way."
+         target="_blank" rel="noopener">
+        <span class="lang-pt">Falar com Caique no WhatsApp</span>
+        <span class="lang-en">Chat with Caique on WhatsApp</span>
+      </a>
+      <small>
+        <span class="lang-pt">Resposta direta · Atendimento Brasil & Internacional</span>
+        <span class="lang-en">Direct coach response · Available worldwide</span>
+      </small>
     </div>
   </div>
 </section>
@@ -1385,23 +1795,35 @@ background:
     <div class="foot-top">
       <div>
         <h4>Caique Souza</h4>
-        <p style="max-width:32ch;">Profissional de Educação Física, estudante de Nutrição. Treinos personalizados presenciais e online.</p>
+        <p class="lang-pt" style="max-width:32ch;">Profissional de Educação Física, estudante de Nutrição. Treinos personalizados presenciais e online.</p>
+        <p class="lang-en" style="max-width:32ch;">Certified Personal Trainer & Nutritionist. Evidence-based, individualized training.</p>
       </div>
       <div>
-        <h4>Contato</h4>
-        <a href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">WhatsApp</a>
+        <h4 class="lang-pt">Contato</h4>
+        <h4 class="lang-en">Contact</h4>
+        <a href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar." 
+           data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar."
+           data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I%20found%20your%20website%20and%20I'd%20like%20to%20connect."
+           target="_blank" rel="noopener">WhatsApp</a>
         <a href="mailto:caique_souzasilva@hotmail.com">caique_souzasilva@hotmail.com</a>
       </div>
       <div>
-        <h4>Redes</h4>
+        <h4 class="lang-pt">Redes</h4>
+        <h4 class="lang-en">Social</h4>
         <a href="https://www.instagram.com/treinadorcaique/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.youtube.com/@treinadorcaique" target="_blank" rel="noopener">YouTube</a>
         <a href="https://linktr.ee/treinadorcaique" target="_blank" rel="noopener">Linktree</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Caique Souza — Treinador</span>
-      <span>#treinadorcaique</span>
+      <span>
+        <span class="lang-pt">© 2026 Caique Souza — Treinador</span>
+        <span class="lang-en">© 2026 Caique Souza — Performance Coach</span>
+      </span>
+      <span>
+        <span class="lang-pt">CREF ativo · Brasil & Internacional</span>
+        <span class="lang-en">Certified Coach · Worldwide Online Coaching</span>
+      </span>
     </div>
   </div>
 </footer>
@@ -1410,6 +1832,8 @@ background:
 <aside class="whatsapp-float-wrap" aria-label="Contato direto via WhatsApp">
   <a 
     href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vi%20seu%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida." 
+    data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vi%20seu%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida."
+    data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hello%20Caique!%20I%20have%20a%20few%20questions%20regarding%20your%20personal%20training%20services."
     class="whatsapp-float-btn" 
     target="_blank" 
     rel="noopener noreferrer" 
@@ -1417,9 +1841,13 @@ background:
     id="whatsapp-float"
   >
     <span class="whatsapp-pulse"></span>
-    <span class="whatsapp-tooltip">Falar com o Treinador</span>
+    <span class="whatsapp-tooltip">
+      <span class="lang-pt">Falar com o Treinador</span>
+      <span class="lang-en">Chat with Coach</span>
+    </span>
     <svg class="whatsapp-icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
-      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 20.15C10.57 20.15 9.11 19.76 7.82 19L7.52 18.82L4.41 19.64L5.24 16.61L5.04 16.29C4.21 14.97 3.77 13.46 3.77 11.91C3.77 7.36 7.48 3.65 12.04 3.65C14.25 3.65 16.32 4.51 17.88 6.07C19.44 7.63 20.3 9.7 20.3 11.92C20.29 16.47 16.59 20.15 12.05 20.15ZM16.58 14.39C16.33 14.27 15.11 13.67 14.88 13.58C14.66 13.5 14.49 13.46 14.33 13.7C14.16 13.95 13.69 14.5 13.54 14.67C13.4 14.83 13.25 14.85 13 14.73C12.75 14.61 11.95 14.35 11 13.5C10.26 12.84 9.76 12.02 9.61 11.77C9.47 11.53 9.6 11.39 9.72 11.27C9.83 11.16 9.97 10.98 10.09 10.84C10.21 10.7 10.26 10.59 10.34 10.43C10.42 10.26 10.38 10.12 10.32 10C10.26 9.88 9.76 8.66 9.56 8.16C9.36 7.68 9.15 7.74 9 7.73C8.86 7.73 8.69 7.72 8.52 7.72C8.35 7.72 8.08 7.78 7.85 8.03C7.62 8.28 6.98 8.88 6.98 10.1C6.98 11.32 7.87 12.5 8 12.67C8.12 12.83 9.74 15.34 12.23 16.41C12.82 16.67 13.28 16.82 13.64 16.94C14.23 17.13 14.78 17.1 15.21 17.04C15.69 16.97 16.68 16.44 16.89 15.85C17.09 15.26 17.09 14.76 17.03 14.66C16.97 14.55 16.83 14.51 16.58 14.39Z"/>
+      <path d="M17.507 14.307l-.009.075c-.236-.12-1.39-.686-1.606-.765-.215-.078-.372-.119-.529.119-.157.239-.607.765-.744.922-.138.158-.275.178-.51.059-.235-.119-.993-.367-1.89-1.168-.699-.624-1.17-1.396-1.307-1.632-.137-.235-.015-.363.103-.48.106-.106.235-.276.353-.414.118-.138.157-.236.235-.393.079-.158.039-.295-.02-.413-.058-.118-.529-1.276-.725-1.748-.191-.46-.386-.398-.53-.405l-.451-.008c-.157 0-.412.059-.628.295-.215.236-.823.805-.823 1.963 0 1.158.843 2.278.96 2.435.118.157 1.66 2.534 4.02 3.553.562.242 1.001.387 1.343.497.564.18 1.077.155 1.483.094.452-.068 1.39-.569 1.586-1.118.196-.55.196-1.021.137-1.119-.059-.098-.216-.157-.451-.275z"/>
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.892.524 3.662 1.434 5.176L2 22l4.982-1.398A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.25c-1.63 0-3.14-.492-4.41-1.332l-.316-.208-2.96.83.824-2.883-.227-.333A8.204 8.204 0 013.75 12c0-4.549 3.701-8.25 8.25-8.25s8.25 3.701 8.25 8.25-3.701 8.25-8.25 8.25z"/>
     </svg>
   </a>
 </aside>
@@ -1574,7 +2002,85 @@ background:
     });
   });
 
-</script>
 
+  // ===== BILINGUAL I18N CONTROLLER (PT / EN) =====
+  (function initI18n() {
+    function setLanguage(lang) {
+      const activeLang = lang === 'en' ? 'en' : 'pt';
+      if (activeLang === 'en') {
+        document.body.setAttribute('data-lang', 'en');
+        document.documentElement.setAttribute('lang', 'en');
+      } else {
+        document.body.removeAttribute('data-lang');
+        document.documentElement.setAttribute('lang', 'pt-BR');
+      }
+
+      // Update active state on language buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const btnLang = btn.getAttribute('data-switch');
+        btn.setAttribute('aria-pressed', String(btnLang === activeLang));
+      });
+
+      // Update all WhatsApp buttons dynamically
+      document.querySelectorAll('a[data-wa-pt]').forEach(link => {
+        const targetUrl = activeLang === 'en' 
+          ? link.getAttribute('data-wa-en') 
+          : link.getAttribute('data-wa-pt');
+        if (targetUrl) {
+          link.setAttribute('href', targetUrl);
+        }
+      });
+
+      // Re-position segmented control indicator on Program tabs if present
+      const seg = document.querySelector('.program-seg');
+      const pill = document.getElementById('seg-pill');
+      if (seg && pill) {
+        const activeBtn = seg.querySelector('.program-seg-btn.active');
+        if (activeBtn) {
+          requestAnimationFrame(() => {
+            pill.style.width = activeBtn.offsetWidth + 'px';
+            pill.style.transform = 'translateX(' + activeBtn.offsetLeft + 'px)';
+          });
+        }
+      }
+
+      try {
+        localStorage.setItem('user_lang_pref', activeLang);
+      } catch (e) {}
+    }
+
+    // Attach click listeners to all language switcher buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const selected = btn.getAttribute('data-switch');
+        setLanguage(selected);
+      });
+    });
+
+    // Detect initial language: 1. URL parameter (?lang=en) -> 2. LocalStorage -> 3. Browser language
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    let initialLang = 'pt';
+
+    if (urlLang === 'en' || urlLang === 'pt') {
+      initialLang = urlLang;
+    } else {
+      try {
+        const saved = localStorage.getItem('user_lang_pref');
+        if (saved === 'en' || saved === 'pt') {
+          initialLang = saved;
+        } else if (navigator.language && navigator.language.toLowerCase().startsWith('en')) {
+          initialLang = 'en';
+        }
+      } catch (e) {}
+    }
+
+    if (initialLang === 'en') {
+      setLanguage('en');
+    }
+  })();
+
+</script>
 </body>
 </html>
