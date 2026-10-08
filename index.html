@@ -948,49 +948,16 @@ background:
     display: flex !important;
   }
 
-  /* Precision Button Typography & Layout Rules */
-  .btn {
-    line-height: 1 !important;
-  }
-  .btn .lang-pt,
-  .btn .lang-en {
-    line-height: 1 !important;
-    display: inline-flex;
-    align-items: center;
-  }
-  body:not([data-lang="en"]) .btn .lang-en,
-  body[data-lang="en"] .btn .lang-pt {
-    display: none !important;
-  }
-  .program-seg-btn {
-    line-height: 1 !important;
-  }
-  .program-seg-btn .lang-pt,
-  .program-seg-btn .lang-en {
-    line-height: 1 !important;
-    display: inline-block;
-  }
-  body:not([data-lang="en"]) .program-seg-btn .lang-en,
-  body[data-lang="en"] .program-seg-btn .lang-pt {
-    display: none !important;
-  }
-  .nav-cta {
-    display: flex;
-    align-items: center;
-  }
-
-  /* Lang Switcher Pill - Refined Compact Height */
+  /* Lang Switcher Pill */
   .lang-switch {
     display: inline-flex;
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 100px;
-    padding: 2px;
+    border-radius: 20px;
+    padding: 3px;
     gap: 2px;
     user-select: none;
-    height: 32px;
-    box-sizing: border-box;
   }
   .lang-btn {
     background: transparent;
@@ -1000,16 +967,11 @@ background:
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.08em;
-    padding: 4px 9px;
-    border-radius: 100px;
+    padding: 5px 10px;
+    border-radius: 14px;
     cursor: pointer;
     transition: all 0.2s ease;
     line-height: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    box-sizing: border-box;
   }
   .lang-btn:hover {
     color: var(--ivory);
@@ -1022,8 +984,7 @@ background:
   }
   .nav-lang-desktop {
     display: inline-flex;
-    margin-right: 12px;
-    align-items: center;
+    margin-right: 14px;
   }
   .nav-lang-mobile {
     display: none;
@@ -1167,7 +1128,10 @@ background:
          href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino." 
          data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino."
          data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I%20found%20your%20website%20and%20I'd%20like%20to%20know%20more%20about%20your%20online%20personal%20training%20programs."
-         target="_blank" rel="noopener"><span class="lang-pt">Falar no WhatsApp</span><span class="lang-en">Chat on WhatsApp</span></a>
+         target="_blank" rel="noopener">
+        <span class="lang-pt">Falar no WhatsApp</span>
+        <span class="lang-en">Chat on WhatsApp</span>
+      </a>
     </div>
     <div class="nav-cta">
       <div class="lang-switch nav-lang-desktop" role="group" aria-label="Selecionar idioma / Select language">
@@ -1178,7 +1142,10 @@ background:
          href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino."
          data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino."
          data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I%20found%20your%20website%20and%20I'd%20like%20to%20know%20more%20about%20your%20online%20personal%20training%20programs."
-         target="_blank" rel="noopener"><span class="lang-pt">Falar no WhatsApp</span><span class="lang-en">Chat on WhatsApp</span></a>
+         target="_blank" rel="noopener">
+        <span class="lang-pt">Falar no WhatsApp</span>
+        <span class="lang-en">Chat on WhatsApp</span>
+      </a>
     </div>
     <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
       <span></span>
@@ -1202,7 +1169,10 @@ background:
         <span class="lang-en">1 year of progress in just 3 months</span>
       </p>
       <div class="hero-ctas">
-        <a class="btn btn-solid" href="#programa"><span class="lang-pt">Conhecer os programas</span><span class="lang-en">Explore the programs</span></a>
+        <a class="btn btn-solid" href="#programa">
+          <span class="lang-pt">Conhecer os programas</span>
+          <span class="lang-en">Explore the programs</span>
+        </a>
       </div>
     </div>
     <div class="hero-portrait">
@@ -1439,7 +1409,10 @@ background:
            href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vi%20os%20resultados%20dos%20alunos%20e%20gostaria%20de%20iniciar%20minha%20transforma%C3%A7%C3%A3o." 
            data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Vi%20os%20resultados%20dos%20alunos%20e%20gostaria%20de%20iniciar%20minha%20transforma%C3%A7%C3%A3o."
            data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I%20saw%20the%20client%20transformations%20and%20I'd%20like%20to%20start%20my%20own%20journey."
-           target="_blank" rel="noopener"><span class="lang-pt">Quero ter resultados assim →</span><span class="lang-en">I want results like these →</span></a>
+           target="_blank" rel="noopener">
+          <span class="lang-pt">Quero ter resultados assim →</span>
+          <span class="lang-en">I want results like these →</span>
+        </a>
         <a class="transition-hint-down" href="#programa">
           <span class="lang-pt">Conheça os programas detalhados ↓</span>
           <span class="lang-en">Explore the training programs ↓</span>
@@ -1460,8 +1433,14 @@ background:
       </p>
       <div class="program-seg" role="tablist" aria-label="Selecionar programa">
         <div class="program-seg-pill" id="seg-pill" aria-hidden="true"></div>
-        <button class="program-seg-btn active" id="tab-online" role="tab" aria-selected="true" aria-controls="panel-online"><span class="lang-pt">Assessoria On-line</span><span class="lang-en">Online Coaching</span></button>
-        <button class="program-seg-btn" id="tab-live" role="tab" aria-selected="false" aria-controls="panel-live"><span class="lang-pt">Personal Ao Vivo</span><span class="lang-en">1-on-1 Live Personal</span></button>
+        <button class="program-seg-btn active" id="tab-online" role="tab" aria-selected="true" aria-controls="panel-online">
+          <span class="lang-pt">Assessoria On-line</span>
+          <span class="lang-en">Online Coaching</span>
+        </button>
+        <button class="program-seg-btn" id="tab-live" role="tab" aria-selected="false" aria-controls="panel-live">
+          <span class="lang-pt">Personal Ao Vivo</span>
+          <span class="lang-en">1-on-1 Live Personal</span>
+        </button>
       </div>
     </div>
 
@@ -1537,7 +1516,10 @@ background:
            href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20come%C3%A7ar%20a%20Assessoria%20On-line." 
            data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20come%C3%A7ar%20a%20Assessoria%20On-line."
            data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I'm%20interested%20in%20your%20Online%20Coaching%20program.%20Could%20you%20share%20details%20on%20pricing%20and%20how%20to%20get%20started?"
-           target="_blank" rel="noopener"><span class="lang-pt">Começar assessoria on-line</span><span class="lang-en">Start Online Coaching</span></a>
+           target="_blank" rel="noopener">
+          <span class="lang-pt">Começar assessoria on-line</span>
+          <span class="lang-en">Start Online Coaching</span>
+        </a>
       </div>
     </div>
 <!-- Tab Panel 2: Personal Ao Vivo -->
@@ -1611,7 +1593,10 @@ background:
            href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20consultar%20a%20disponibilidade%20para%20o%20Personal%20Ao%20Vivo." 
            data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20consultar%20a%20disponibilidade%20para%20o%20Personal%20Ao%20Vivo."
            data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I'd%20like%20to%20check%20your%20availability%20and%20schedule%20for%201-on-1%20Live%20Personal%20Training."
-           target="_blank" rel="noopener"><span class="lang-pt">Consultar disponibilidade</span><span class="lang-en">Check Availability</span></a>
+           target="_blank" rel="noopener">
+          <span class="lang-pt">Consultar disponibilidade</span>
+          <span class="lang-en">Check Availability</span>
+        </a>
       </div>
     </div>
 </section>
@@ -1767,7 +1752,10 @@ background:
          href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Quero%20dar%20o%20primeiro%20passo%20para%20treinar%20certo." 
          data-wa-pt="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Quero%20dar%20o%20primeiro%20passo%20para%20treinar%20certo."
          data-wa-en="https://api.whatsapp.com/send?phone=5512997340254&text=Hi%20Caique!%20I'm%20ready%20to%20take%20the%20first%20step%20and%20start%20training%20the%20right%20way."
-         target="_blank" rel="noopener"><span class="lang-pt">Falar com Caique no WhatsApp</span><span class="lang-en">Chat with Caique on WhatsApp</span></a>
+         target="_blank" rel="noopener">
+        <span class="lang-pt">Falar com Caique no WhatsApp</span>
+        <span class="lang-en">Chat with Caique on WhatsApp</span>
+      </a>
       <small>
         <span class="lang-pt">Resposta direta · Atendimento Brasil & Internacional</span>
         <span class="lang-en">Direct coach response · Available worldwide</span>
