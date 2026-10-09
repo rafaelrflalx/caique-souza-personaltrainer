@@ -1,0 +1,27 @@
+KIT DE IDENTIDADE VISUAL — TREINADOR CAIQUE SOUZA
+===================================================
+
+Arquivos reconstruídos em alta fidelidade vetorial para uso profissional:
+
+1. logo_site.svg
+   -> Vetorial oficial em SVG (curvas puras, sem perda de qualidade).
+   -> Letras em branco puro com fundo transparente.
+   -> Ideal para cabeçalho do site, banners e qualquer resolução.
+
+2. logo_site.png
+   -> Versão em alta resolução (2400 x 2400 px, 300 DPI) com fundo transparente.
+   -> Letras e símbolo em branco (#FFFFFF).
+   -> Ideal para aplicação direta sobre qualquer fundo escuro (como o site).
+
+3. logo_site_fundo_preto.png
+   -> Versão idêntica à referência original, com fundo preto (#000000) e proporções corrigidas (1:1).
+
+4. logo_site_preta.svg & logo_site_preta.png
+   -> Versão com elementos em preto (#000000) e fundo transparente.
+   -> Ideal para documentos, folhas timbradas, modo claro e impressões.
+
+5. logo_simbolo.svg & logo_simbolo.png / logo_simbolo_fundo_preto.png
+   -> Apenas o monograma geométrico (sem o texto).
+   -> Ideal para Favicon do site, foto de perfil do Instagram e ícone de app.
+
+Gerado com precisão matemática a partir da matriz original logo_caique.jpeg.
