@@ -105,8 +105,25 @@
     border-bottom:1px solid rgba(255,255,255,.07);
   }
   nav{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;max-width:1180px;margin:0 auto;}
-  .logo{font-family:var(--body);font-weight:900;font-size:20px;letter-spacing:-.01em;}
+  .logo{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--body);
+    font-weight:900;
+    font-size:20px;
+    letter-spacing:-.01em;
+    transition:opacity .2s ease;
+  }
+  .logo:hover{opacity:.9;}
   .logo span{color:var(--ivory);}
+  .logo-icon{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+    flex-shrink:0;
+    display:block;
+  }
   .nav-links{display:flex;gap:36px;font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
   .nav-links a{color:var(--grey);transition:.2s;}
   .nav-links a:hover{color:var(--bronze);}
@@ -424,6 +441,20 @@ background:
 
   /* FOOTER */
   footer{padding:clamp(80px,10vw,128px) 0 38px;background:#111;}
+  .foot-logo{
+    display:inline-block;
+    margin-bottom:18px;
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .foot-logo:hover{
+    opacity:.85;
+    transform:translateY(-2px);
+  }
+  .foot-logo img{
+    width:110px;
+    height:auto;
+    display:block;
+  }
   .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(48px,8vw,120px);padding-bottom:clamp(70px,9vw,110px);border-bottom:1px solid rgba(255,255,255,.1);}
   .foot-top h4{font-family:var(--body);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#F5F6F6;margin-bottom:24px;}
   .foot-top a, .foot-top p{display:block;color:#8E8D8B;font-size:13px;line-height:1.7;margin-bottom:9px;}
@@ -1124,6 +1155,7 @@ background:
 <header>
   <nav>
     <a class="logo" href="/">
+      <img src="public/logo/logo_simbolo.svg" alt="" width="22" height="22" class="logo-icon" aria-hidden="true">
       <span class="lang-pt">Treinador <span>Caique</span></span>
       <span class="lang-en">Coach <span>Caique</span></span>
     </a>
@@ -1794,7 +1826,9 @@ background:
   <div class="wrap">
     <div class="foot-top">
       <div>
-        <h4>Caique Souza</h4>
+        <a href="/" class="foot-logo" aria-label="Página inicial - Treinador Caique">
+          <img src="public/logo/logo_site.svg" alt="Treinador Caique" width="110" height="110">
+        </a>
         <p class="lang-pt" style="max-width:32ch;">Profissional de Educação Física, estudante de Nutrição. Treinos personalizados presenciais e online.</p>
         <p class="lang-en" style="max-width:32ch;">Certified Personal Trainer & Nutritionist. Evidence-based, individualized training.</p>
       </div>
