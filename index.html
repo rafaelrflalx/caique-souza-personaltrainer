@@ -128,7 +128,6 @@
   .nav-links a{color:var(--grey);transition:.2s;}
   .nav-links a:hover{color:var(--bronze);}
   .nav-cta{display:flex;}
-  .nav-menu-brand{display:none;}
 
   /* HERO */
   .hero{
@@ -523,8 +522,8 @@ background:
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 28px;
-      padding: 60px 24px;
+      gap: 32px;
+      padding: 80px 24px;
       border-left: 1px solid var(--panel-edge);
       box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
       transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -535,24 +534,6 @@ background:
       right: 0;
     }
 
-    .nav-menu-brand {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: auto !important;
-      padding: 0 !important;
-      margin-bottom: -10px;
-      transition: transform 0.25s ease;
-    }
-    .nav-menu-brand:hover {
-      transform: scale(1.05);
-    }
-    .nav-menu-brand img {
-      width: 74px;
-      height: 74px;
-      object-fit: contain;
-      filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.45));
-    }
     .nav-links a {
       font-size: 16px;
       width: 100%;
@@ -1160,9 +1141,6 @@ background:
       <span class="lang-en">Coach <span>Caique</span></span>
     </a>
     <div class="nav-links">
-      <a class="nav-menu-brand" href="/" aria-label="Página inicial - Treinador Caique">
-        <img src="public/logo/logo_site.svg" alt="Treinador Caique" width="74" height="74">
-      </a>
       <div class="lang-switch nav-lang-mobile" role="group" aria-label="Selecionar idioma / Select language">
         <button class="lang-btn" data-switch="pt" type="button" aria-label="Versão em Português">PT</button>
         <button class="lang-btn" data-switch="en" type="button" aria-label="English version">EN</button>
