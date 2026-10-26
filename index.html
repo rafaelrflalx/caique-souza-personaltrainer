@@ -998,18 +998,32 @@ background:
     user-select: none;
   }
   .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     background: transparent;
     border: none;
     color: var(--grey-dim);
     font-family: var(--body);
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 5px 10px;
+    letter-spacing: 0.06em;
+    padding: 4px 8px;
     border-radius: 14px;
     cursor: pointer;
     transition: all 0.2s ease;
     line-height: 1;
+  }
+  .flag-icon {
+    width: 15px;
+    height: 11px;
+    border-radius: 2px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: inline-block;
+    pointer-events: none;
+    box-shadow: 0 0 1px rgba(0,0,0,0.5);
   }
   .lang-btn:hover {
     color: var(--ivory);
@@ -1144,8 +1158,14 @@ background:
     </a>
     <div class="nav-links">
       <div class="lang-switch nav-lang-mobile" role="group" aria-label="Selecionar idioma / Select language">
-        <button class="lang-btn" data-switch="pt" type="button" aria-label="Versão em Português">PT</button>
-        <button class="lang-btn" data-switch="en" type="button" aria-label="English version">EN</button>
+        <button class="lang-btn" data-switch="pt" type="button" aria-label="Versão em Português">
+          <svg class="flag-icon" viewBox="0 0 60 42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="42" fill="#009c3b"/><polygon points="30,4.5 55.5,21 30,37.5 4.5,21" fill="#ffdf00"/><circle cx="30" cy="21" r="10.2" fill="#002776"/><path d="M20.4,22.5 Q30,18.6 39.6,22.5" stroke="#ffffff" stroke-width="2.4" fill="none"/></svg>
+          <span>PT</span>
+        </button>
+        <button class="lang-btn" data-switch="en" type="button" aria-label="English version">
+          <svg class="flag-icon" viewBox="0 0 60 42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="42" fill="#012169"/><path d="M0,0 L60,42 M60,0 L0,42" stroke="#ffffff" stroke-width="8.4"/><path d="M0,0 L60,42 M60,0 L0,42" stroke="#c8102e" stroke-width="4.8"/><path d="M30,0 V42 M0,21 H60" stroke="#ffffff" stroke-width="13.5"/><path d="M30,0 V42 M0,21 H60" stroke="#c8102e" stroke-width="7.8"/></svg>
+          <span>EN</span>
+        </button>
       </div>
       <a href="#depoimentos">
         <span class="lang-pt">Resultados</span>
@@ -1174,8 +1194,14 @@ background:
     </div>
     <div class="nav-cta">
       <div class="lang-switch nav-lang-desktop" role="group" aria-label="Selecionar idioma / Select language">
-        <button class="lang-btn" data-switch="pt" type="button" aria-label="Versão em Português">PT</button>
-        <button class="lang-btn" data-switch="en" type="button" aria-label="English version">EN</button>
+        <button class="lang-btn" data-switch="pt" type="button" aria-label="Versão em Português">
+          <svg class="flag-icon" viewBox="0 0 60 42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="42" fill="#009c3b"/><polygon points="30,4.5 55.5,21 30,37.5 4.5,21" fill="#ffdf00"/><circle cx="30" cy="21" r="10.2" fill="#002776"/><path d="M20.4,22.5 Q30,18.6 39.6,22.5" stroke="#ffffff" stroke-width="2.4" fill="none"/></svg>
+          <span>PT</span>
+        </button>
+        <button class="lang-btn" data-switch="en" type="button" aria-label="English version">
+          <svg class="flag-icon" viewBox="0 0 60 42" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="42" fill="#012169"/><path d="M0,0 L60,42 M60,0 L0,42" stroke="#ffffff" stroke-width="8.4"/><path d="M0,0 L60,42 M60,0 L0,42" stroke="#c8102e" stroke-width="4.8"/><path d="M30,0 V42 M0,21 H60" stroke="#ffffff" stroke-width="13.5"/><path d="M30,0 V42 M0,21 H60" stroke="#c8102e" stroke-width="7.8"/></svg>
+          <span>EN</span>
+        </button>
       </div>
       <a class="btn btn-solid" 
          href="https://api.whatsapp.com/send?phone=5512997340254&text=Ol%C3%A1%2C%20Caique%21%20Gostaria%20de%20saber%20mais%20sobre%20seus%20programas%20de%20treino."
